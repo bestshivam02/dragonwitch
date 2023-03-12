@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dragon witch</title>
+  <link rel="stylesheet" href="{% static './assets/css/app.css' %}" />
+  <link href="{% static './assets/css/product.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static './assets/css/singlepdct.css' %}">
+  <link rel="stylesheet" href="{% static './assets/css/wish.css' %}">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header>
+    <!-- Top nav start-------------------------- -->
+    <div class="top_nav">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mt-2">
+            <p>
+              <img src="{% static './images/Icon ionic-ios-mail.png' %}" alt="" class="mx-2 msg-img" />
+              support@Denwear.com
+            </p>
+          </div>
+          <div class="col-md-4 mt-2">
+            <p>
+              Sale upto 50% onn this sunday.
+              <a class="text-white" href="#">Shop now!</a>
+            </p>
+          </div>
+          <div class="col-md-4 mt-2 top-col-3">
+            <div class="row">
+              <div class="col-md-3">
+                <p><a href="#" class="text-white">Contact us</a>
+                </p>
+
+              </div>
+              <div class="col-md-5">
+                <p>
+                  <img class="mx-2 call-img" src="{% static './images/Icon ionic-ios-call.png' %}" alt="" />
+                  +1 2346 7890
+                </p>
+              </div>
+              <!-- Sign up modal start -->
+              <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+
+                  <div class="modal-content">
+                    <h5 class="modal-close" data-bs-dismiss="modal">&#10005;</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Sign up to review</h5>
+                    <p><span class="sign-text">Already have an account? </span><span><a href="#login"
+                          data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a></span>
+                    </p>
+                    <form action="{% url 'accounts:register' %}" id="sign_form" method="post">
+                      {% csrf_token %}
+                      <label class="label-login" for="fname">Your Name</label>
+                      <input type="text" id="sign_name" name="name" class="w-100 label-input" required="required">
+                      <label class="label-login" for="email">Email</label>
+                      <input type="email" id="sign_mail" name="email" class="w-100 label-input" required="required">
+                      <label class="label-login" for="phone">Phone Number</label>
+                      <input type="tel" id="phone" name="phone" class="w-100 label-input" required="required">
+                      <label class="label-login" for="password">Your Password</label>
+                      <input type="password" id="password" name="password" class="w-100 label-input">
+                      <label class="label-login" for="cpassword">Confirm Password</label>
+                      <input type="password" id="cpassword" name="cpassword" class="w-100 label-input">
+                      <div class="left mx-3">
+                        <input type="checkbox" id="term_condi_check">
+                        <label for="check" class="same-cs">I agree to the <a href="#" class="same-cs"
+                            style="text-decoration: underline;">Terms & Conditions</a></label>
+                      </div>
+                      <input type="submit" value="Sign up" class="btn btn-large">
+                      <p class="text-center same-cs mt-2">or Sign up with</p>
+                      <div class="text-center">
+                        <a href="#fb" class="mx-3" style="font-size:27px;"><i class="fab fa-facebook-square"></i></a>
+                        <a href="#google" style="font-size:27px;"><i class="fab fa-google-plus-g"></i></a>
+                      </div>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+              <!-- Sign up modal end   -->
+              <!-- forgot password modal starts -->
+              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+
+                  <div class="modal-content">
+                    <h5 class="modal-close" data-bs-dismiss="modal">&#10005;</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
+                    <div>
+                      <p><span class="sign-text">We will send an email on registered email id</span>
+                      </p>
+                    </div>
+                    <form action="#">
+                      <label class="label-login" for="mail">Your Email</label>
+                      <input type="email" id="mail" name="mail" class="w-100 label-input">
+                      <input type="submit" value="Submit" class="btn btn-large">
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- forgot password modal ends -->
+
+              <!-- email verification modal start -->
+                <div class="modal fade" id="email_verification_model" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                <div class="modal-dialog">
+
+                  <div class="modal-content">
+                    <h5 class="modal-close" data-bs-dismiss="modal">&#10005;</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Email verification</h5>
+                    <div>
+                      <p><span class="sign-text">To continue complete this verification step. we've sent an OTP to the email address </span>
+                      </p>
+                    </div>
+                    <form action="#" method="post">
+                      <lbel class="label-login" for="mail">please enter it below to complete verification</lbel>
+                      <input type="number" id="otp_input" name="otp" class="w-100 label-input">
+                      <input type="submit" value="Submit" class="btn btn-large">
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- email verificatio modal ends -->
+              <div class="col-md-4">
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'frontend:profile' %}" class="text-white" >{{ request.user.full_name }}</a>
+                <a
+                class="nav-item nav-link btn btn-danger ml-4 text-light"
+                href="{% url 'accounts:logout' %}">
+                Logout
+              </a>
+                {% else %}
+                <p><a href="#" class="text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Login/Sign Up</a></p>
+                {% endif %}
+              </div>
+
+              <!-- login Modal start -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+
+                  <div class="modal-content">
+                    <h5 class="modal-close" data-bs-dismiss="modal">&#10005;</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Please login to review</h5>
+                    <div>
+                      <p><span class="sign-text">Don't have an account? </span><span><a href="#signup"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal1">Sign up</a></span>
+                      </p>
+                    </div>
+                    <form action="{% url 'accounts:login' %}" id="login_form" method="post">
+                      {% csrf_token %}
+                      <label class="label-login" for="mail">Your Email</label>
+                      <input type="email" id="login_email" name="email" class="w-100 label-input">
+                      <label class="label-login" for="password">Your Password</label>
+                      <input type="password" id="password" name="password" placeholder="" class="w-100 label-input">
+                      <div class="left mx-3">
+                        <input type="checkbox" id="remember_me" name="remember_me">
+                        <label for="check" class="same-cs">Remember Me</label>
+                        <a href="#forgot" style="float:right;" class="same-cs" data-bs-toggle="modal"
+                          data-bs-target="#exampleModal2">Forgot Password?</a>
+                      </div>
+                      <input type="submit" value="Login" class="btn btn-large">
+                      <p class="text-center same-cs mt-2">or Login with</p>
+                      <div class="text-center">
+                        <a href="#fb" class="mx-3" style="font-size:27px;"><i class="fab fa-facebook-square"></i></a>
+                        <a href="#google" style="font-size:27px;"><i class="fab fa-google-plus-g"></i></a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- login modal end -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Top nav end------------------------------- -->
+    {% if messages %}
+      <ul class="messagelist">
+        {% for message in messages %}
+            <li>{{ message.message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    <!-- main nav start---------------------------- -->
+    <div>
+      <nav>
+        <div class="container d-flex">
+          <div class="logo">
+            <img src="{% static './images/WhatsApp_Image_2022-03-13_at_8.37.48_PM-removebg-preview.png' %}" alt="Logo Image" />
+          </div>
+          <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+          <ul class="nav-links">
+            <li>
+              <a href="{% url 'frontend:index' %}" class="active" style="color: #940205;">Home</a>
+            </li>
+            <li class="navbar-dropdown">
+              <a href="#">Products</a>
+              <div class="dropdown">
+                <a href="product.html">Men T-shirts</a>
+                <a href="#">Accessories</a>
+                <a href="#">Customised products</a>
+              </div>
+            </li>
+            <li class="navbar-dropdown">
+              <a
+                href="https://css-tricks.com/css-media-queries/#:~:text=You%20may%20use%20as%20many,alter%20the%20logic%20as%20well.">
+                Categories
+              </a>
+              <div class="dropdown">
+                <a href="summer.html">Summer Wear</a>
+                <a href="#">Winter Wear</a>
+                <a href="#">Customised products</a>
+              </div>
+            </li>
+            <li><a href="#">Pre-Customised Products</a></li>
+            <li class="navbar-dropdown">
+              <a href="#">Bulk Customised Orders</a>
+              <div class="dropdown">
+                <a href="#">Men T-shirts</a>
+                <a href="#">Accessories</a>
+                <a href="#">Customised products</a>
+              </div>
+            </li>
+            <li><a href="#">About Us</a></li>
+
+            <li>
+              <input type="text" placeholder="Search your product" />
+              <img src="{% static './images/Icon-Search.png' %}" alt="" />
+            </li>
+            <li><a href="wishlist.html"><i class="fas fa-heart heart-size"></i></a></li>
+            <li><img src="{% static './images/Icon-Shop 2.png' %}" /></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+<!-- main nav end------------------------------ -->
+
+
+
+
+
+
+
+
+
+
+<!-- footer---------------------- -->
+<footer class="ct-footer">
+    <div class="container-flude m-3">
+        <form name="contentForm" enctype="multipart/form-data" method="post" action="">
+        <div class="ct-footer-pre text-center">
+            <div class="inner">
+            <span><img src="{% static './images/logo-footer.png' %}"></span>
+            </div>
+            <div class="inner foot-logo">
+            <span><i class="fab fa-facebook-f"></i></span>
+            <span><i class="fab fa-instagram"></i></span>
+            <span><i class="fab fa-twitter"></i></span>
+            <span><i class="fab fa-pinterest"></i></span>
+
+            </div>
+            <div class="inner">
+            <div class="form-group row">
+                <div class="col-md-6">
+                <span class="cus-text-footer">Sign up to our newsletter and immediately you get a 7% off for your
+                    first order</span>
+                </div>
+                <div class="d-flex col-md-4">
+                <form action="">
+                    <input name="formfields[nl_email]" id="nl_email" class="validate[required]"
+                    placeholder="Enter your email address" type="text" value=""> <label for="nl_email"
+                    class="sr-only">Email Address</label>
+                    <button type="submit" class="btn-motive">Subscribe</button>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+        </form>
+        <hr>
+        <ul class="ct-footer-list text-center-sm">
+        <li>
+            <address>
+            <h2 class="ct-footer-list-header">Contact Us</h2>
+            <span>PO Box 16122 Collins Street West<br>
+                Victoria B007 Australia-Map<br></span>
+            <span>Phone: <a href="tel:5555555555">+61 3 8376 6284</a></span>
+            <div class="payment-getway">
+                <ul>
+                <li>
+                    <img src="{% static './images/Visa.png' %}" alt="" srcset="">
+                </li>
+                <li>
+                    <img src="{% static './images/MasterCard.png' %}" alt="" srcset="">
+                </li>
+                <li>
+                    <img src="{% static './images/Maestro.png' %}" alt="" srcset="">
+                </li>
+                <li>
+                    <img src="{% static './images/AmericanExpress.png' %}" alt="" srcset="">
+                </li>
+                <li>
+                    <img src="{% static './images/Cirrus-light.png' %}" alt="" srcset="">
+                </li>
+                <li>
+                    <img src="" alt="" srcset="">
+                </li>
+                </ul>
+            </div>
+            </address>
+        </li>
+        <li>
+            <h2 class="ct-footer-list-header">Our Store</h2>
+            <ul>
+            <li>
+                <a href="">New York</a>
+            </li>
+            <li>
+                <a href="">London SF</a>
+            </li>
+            <li>
+                <a href="">Los Angeles</a>
+            </li>
+            <li>
+                <a href="">Las Vegas</a>
+            </li>
+            </ul>
+        </li>
+        <li>
+            <h2 class="ct-footer-list-header">Popular Categories</h2>
+            <ul>
+            <li>
+                <a href="">Hoodie Tees</a>
+            </li>
+            <li>
+                <a href="">Winterwear</a>
+            </li>
+            <li>
+                <a href="">Summerwear</a>
+            </li>
+            <li>
+                <a href="">Casual Wear</a>
+            </li>
+            <li>
+                <a href="">Ethenic</a>
+            </li>
+            </ul>
+        </li>
+        <li>
+            <h2 class="ct-footer-list-header">Shop Info</h2>
+            <ul>
+            <li>
+                <a href="">Our story</a>
+            </li>
+            <li>
+                <a href="">Contact Us</a>
+            </li>
+            <li>
+                <a href="">Policy</a>
+            </li>
+            <li>
+                <a href="">Career</a>
+            </li>
+            </ul>
+        </li>
+        <li>
+            <h2 class="ct-footer-list-header">Shop By</h2>
+            <ul>
+            <li>
+                <a href="">New Arrival</a>
+            </li>
+            <li>
+                <a href="">Best Seller</a>
+            </li>
+            <li>
+                <a href="">Features Product</a>
+            </li>
+            <li>
+                <a href="">Sale Off</a>
+            </li>
+            </ul>
+        </li>
+        <li>
+            <h2 class="ct-footer-list-header">Customer Support</h2>
+            <ul>
+            <li>
+                <a href="">The Blog</a>
+            </li>
+            <li>
+                <a href="">FAQs</a>
+            </li>
+            <li>
+                <a href="">Order Tracking</a>
+            </li>
+            <li>
+                <a href="">Shipping and Returns</a>
+            </li>
+            </ul>
+        </li>
+        </ul>
+        <hr>
+        <div class="ct-footer-meta text-center">
+        <p>Dragon witch &copy 2022. All Rights Reserved</p>
+        </div>
+    </div>
+    </footer>
+      <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" 
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" 
+            crossorigin="anonymous" 
+            referrerpolicy="no-referrer">
+        </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script src="{% static './assets/js/app.js' %}">
+        </script>
+    </body>
+
+</html>
+
+  <section>
+    <div class="container">
+      <div class="row mt-5 clothe-card-media">
+        <div class="col-md-10 latest-coll">
+          <p>Our Latest Collection</p>
+        </div>
+        <div class="col-md-2">
+          <!-- col-sm-6 col-lg-3 col-xs-4 mt-3 -->
+        </div>
+        {% if products %}
+          {% for each_product in products %}
+            <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+              <div class="card card-border" style="width: 18rem;">
+                <a href="{% url 'frontend:each_products' each_product.id %}">
+                <div class="wishlist-card-icon">
+                  <img src="{% static './images/Icon-heart-2.png' %}" alt="">
+                </div>
+                <img class="card-img-top bg-image" src="{{ each_product.image.url }}" alt="Card image cap">
+                <div>
+                  <div>
+
+                    <span class="top-card-text">3 Color Options</span>
+                    <span class="star-images" style="float:right;">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </span>
+                  </div>
+                  <hr>
+                </div>
+                <div>
+                  <p class="card-text img-text">{{each_product.name}}</p>
+                </div>
+                <div>
+                  <p><span>$ {{each_product.discount_price}}</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                </div>
+              </a>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section>
+    <div class="container">
+      <div class="row mt-5 clothe-card-media">
+        <div class="col-md-10 latest-coll">
+          <p>Top Recommendations</p>
+        </div>
+        <div class="col-md-2">
+          <!-- col-sm-6 col-lg-3 col-xs-4 mt-3 -->
+        </div>
+
+        {% if products %}
+          {% for each_product in products %}
+            <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+              <div class="card card-border" style="width: 18rem;">
+                <div class="wishlist-card-icon">
+                  <img src="{% static './images/Icon-heart-2.png' %}" alt="">
+                </div>
+                <img class="card-img-top bg-image" src="{{ each_product.image.url }}" alt="Card image cap">
+                <div>
+                  <div>
+
+                    <span class="top-card-text">3 Color Options</span>
+                    {% for each_rating in product_list %}
+                        <h2>hello >>>>>>>>>>> {{ each_rating.rating_star }}</h2>
+                            <!-- <i class="fas fa-star"></i> -->
+                            <!-- <i class="fas fa-star"></i> -->
+                      {% endfor %}
+                    <!-- <span class="star-images" style="float:right;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    </span> -->
+                  </div>
+                  <hr>
+                </div>
+                <div>
+                  <p class="card-text img-text">{{each_product.name}}</p>
+                </div>
+                <div>
+                  <p><span>$ {{each_product.discount_price}}</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+        <!-- <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+          <div class="card card-border" style="width: 18rem;">
+            <div class="wishlist-card-icon">
+              <img src="{% static './images/Icon-heart-2.png' %}" alt="">
+            </div>
+            <img class="card-img-top bg-image" src="{% static './images/1.png' %}" alt="Card image cap">
+            <div>
+              <div>
+                <span class="top-card-text">3 Color Options</span>
+                <span class="star-images" style="float:right;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <hr>
+            </div>
+            <div>
+              <p class="card-text img-text">Raymond Formals Men Shirt</p>
+            </div>
+            <div>
+              <p><span>$723</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+          <div class="card card-border" style="width: 18rem;">
+            <div class="wishlist-card-icon">
+              <img src="{% static './images/Icon-heart-2.png' %}" alt="">
+            </div>
+            <img class="card-img-top bg-image" src="{% static './images/2.png' %}" alt="Card image cap">
+            <div>
+              <div>
+                <span class="top-card-text">3 Color Options</span>
+                <span class="star-images" style="float:right;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <hr>
+            </div>
+            <div>
+              <p class="card-text img-text">Wrangler Stretchable Jeans</p>
+            </div>
+            <div>
+              <p><span>$832</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+          <div class="card card-border" style="width: 18rem;">
+            <div class="left-float-icon">
+              <p>hot</p>
+            </div>
+            <div class="wishlist-card-icon">
+              <img src="{% static './images/Icon-heart-2.png' %}" alt="">
+            </div>
+            <img class="card-img-top bg-image" src="{% static './images/3.png' %}" alt="Card image cap">
+            <div>
+              <div>
+                <span class="top-card-text">3 Color Options</span>
+                <span class="star-images" style="float:right;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <hr>
+            </div>
+            <div>
+              <p class="card-text img-text">Raymond Formals Men Shirt</p>
+            </div>
+            <div>
+              <p><span>$107</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+          <div class="card card-border" style="width: 18rem;">
+            <div class="wishlist-card-icon">
+              <img src="{% static './images/Icon-heart-2.png' %}" alt="">
+            </div>
+            <img class="card-img-top bg-image" src="{% static './images/4.png' %}" alt="Card image cap">
+            <div>
+              <div>
+                <span class="top-card-text">3 Color Options</span>
+                <span class="star-images" style="float:right;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <hr>
+            </div>
+            <div>
+              <p class="card-text img-text">Puma Men Track Pants</p>
+            </div>
+            <div>
+              <p><span>$118</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+          <div class="card card-border" style="width: 18rem;">
+            <div class="wishlist-card-icon">
+              <img src="{% static './images/Icon-heart-2.png' %}" alt="">
+            </div>
+            <img class="card-img-top bg-image" src="{% static './images/1.png' %}" alt="Card image cap">
+            <div>
+              <div>
+                <span class="top-card-text">3 Color Options</span>
+                <span class="star-images" style="float:right;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <hr>
+            </div>
+            <div>
+              <p class="card-text img-text">Raymond Formals Men Shirt</p>
+            </div>
+            <div>
+              <p><span>$723</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+          <div class="card card-border" style="width: 18rem;">
+            <div class="wishlist-card-icon">
+              <img src="{% static './images/Icon-heart-2.png' %}" alt="">
+            </div>
+            <img class="card-img-top bg-image" src="{% static './images/2.png' %}" alt="Card image cap">
+            <div>
+              <div>
+                <span class="top-card-text">3 Color Options</span>
+                <span class="star-images" style="float:right;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <hr>
+            </div>
+            <div>
+              <p class="card-text img-text">Wrangler Stretchable Jeans</p>
+            </div>
+            <div>
+              <p><span>$832</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+          <div class="card card-border" style="width: 18rem;">
+            <div class="left-float-icon">
+              <p>hot</p>
+            </div>
+            <div class="wishlist-card-icon">
+              <img src="{% static './images/Icon-heart-2.png' %}" alt="">
+            </div>
+            <img class="card-img-top bg-image" src="{% static './images/3.png' %}" alt="Card image cap">
+            <div>
+              <div>
+                <span class="top-card-text">3 Color Options</span>
+                <span class="star-images" style="float:right;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <hr>
+            </div>
+            <div>
+              <p class="card-text img-text">Raymond Formals Men Shirt</p>
+            </div>
+            <div>
+              <p><span>$107</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+          <div class="card card-border" style="width: 18rem;">
+            <div class="wishlist-card-icon">
+              <img src="{% static './images/Icon-heart-2.png' %}" alt="">
+            </div>
+            <img class="card-img-top bg-image" src="{% static './images/4.png' %}" alt="Card image cap">
+            <div>
+              <div>
+                <span class="top-card-text">3 Color Options</span>
+                <span class="star-images" style="float:right;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <hr>
+            </div>
+            <div>
+              <p class="card-text img-text">Puma Men Track Pants</p>
+            </div>
+            <div>
+              <p><span>$118</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% if products %}
+              {% for each_product in products %}
+                <div class="card-wrapper"><div class="card card-border">
+                  <div class="wishlist-card-icon">
+                    <button class="product-slider__fav js-fav"><span class="heart"></span></button>
+                  </div>
+                  <a href="{% url 'frontend:each_products' each_product.id %}"><img class="card-img-top bg-image" src="{{ each_product.image.url }}" alt="Card image cap"></a>
+                  <div>
+                    <div>
+                      <span class="top-card-text">3 Color Options</span>
+                      <span class="star-images" style="float:right;">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </span>
+                    </div>
+                    <hr>
+                  </div>
+                  <div>
+                    <a  class="card-text img-text" href="{% url 'frontend:each_products' each_product.id %}">{{each_product.name}}</a>
+                  </div>
+                  <div>
+                    <p><span>${{each_product.discount_price}}</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+            # class OrderDetail(models.Model):
+
+            #     # You can change as a Foreign Key to the user model
+            #     user = models.ForeignKey(User,on_delete=models.CASCADE)
+            #     product = models.ForeignKey(Product,on_delete=models.CASCADE)
+            
+            #     amount = models.IntegerField(verbose_name='Amount')
+            
+            #     stripe_payment_intent = models.CharField(max_length=200)
+            
+            #     # This field can be changed as status
+            #     has_paid = models.BooleanField(default=False,verbose_name='Payment Status')
+            
+            #     created_on = models.DateTimeField(auto_now_add=True)
+            
+            #     updated_on = models.DateTimeField(auto_now_add=True)
+            
+            #     class Meta:
+            #         managed = True
+            #         db_table  = 'tbl_order_detail'
+
+
+
+            mailto:den220wear@gmail.com
+            password:Den@2022#wear
+
+
+
+
+
+
+
+            {% if products %}
+              {% for each_product in products %}
+                <div class="card-wrapper">
+                  <div class="card card-border">
+                  <div class="wishlist-card-icon">
+                    {% if request.user.is_authenticated %}
+                        {% if each_product.wish_list %}
+                            <button class="product-slider__fav js-fav" id='wishlist{{each_product.id}}' onclick="heart_wishlist(this,'{{ each_product.name }}','{{ each_product.id }}')"><span class="heart is-active"></span></button>
+                        {% else %}
+                            <button class="product-slider__fav js-fav" id='wishlist{{each_product.id}}' onclick="heart_wishlist(this,'{{ each_product.name }}','{{ each_product.id }}')"><span class="heart"></span></button>
+                        {% endif %}
+                    {% else %}
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="product-slider__fav js-fav" id='wishlist{{each_product.id}}' ><span class="heart"></span></button>
+                    {% endif %}
+                  </div>
+                  <a href="{% url 'frontend:each_products' each_product.id %}"><img class="card-img-top bg-image" src="{{ each_product.image.url }}" alt="Card image cap"></a>
+                  <div>
+                    <div>
+                      <span class="top-card-text">3 Color Options</span>
+                      <span class="star-images" style="float:right;">
+                        {% with ''|center:each_product.rating_star as range %}
+                              {% for i in range %}
+                                <i class="fas fa-star"></i>
+                              {% endfor %}
+                          {% endwith %}  
+                          {% with ''|center:each_product.zero_rating_star as negative_range %}
+                              {% for i in negative_range %}
+                              <i class="far fa-star"></i>
+                              {% endfor %}
+                          {% endwith %}
+                      </span>
+                    </div>
+                    <hr>
+                  </div>
+                  <div>
+                    <a  class="card-text img-text pro_name" href="{% url 'frontend:each_products' each_product.id %}">{{each_product.name}}</a>
+                  </div>
+                  <div>
+                    <p><span>${{each_product.discount_price}}</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            {% endif %}

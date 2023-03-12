@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+.faq-tabs  .nav-link.active::after {
+    content: "";
+}
+/* .faq-tabs{
+    max-width: 100% !important;
+} */
+.contact-info{
+    background-color: #940205;
+    border-radius: 5px;
+    padding:26px;
+    color:#FFFFFF;   
+}
+.info-1{
+    font-size: 24px;
+    font-family: 'Poppins','Medium';
+}
+.info-2{
+    font-size: 14px;
+    font-family: 'Poppins','Regular';
+}
+/* @media (min-width: 768px)
+{
+    .container{
+       max-width: 100% !important;
+    }
+} */
+.accordion-change{
+    max-width:100% !important;
+}

@@ -1,0 +1,10 @@
+
+hello new order is placed
+{% if list %}
+    {% for each in list %}
+        {{ each.Product_name }}
+        {{ each.Qty }}
+        {{ each.Transaction_Amount }}
+        {{ each.User }}
+    {% endfor %}
+{% endif %}

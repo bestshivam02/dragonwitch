@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+  {% load static %}
+    {% block content %}
+
+      <div class="text-center top-div py-5">
+        <div class="container">
+          <h1>Accessories</h1>
+          <p><a href="{% url 'frontend:index' %}">Home/</a><a href="{% url 'frontend:acessories' %}" style="color:black;">Accessories</a></p>
+        </div>
+      </div>
+      <h1 class="by text-center mt-3">Shop by Categories</h1>
+      <div class="mt-5">
+          <div class="container">
+              <div class="row justify-content-center">
+                {% if category_obj %}
+                  {% for each in  category_obj %}
+                    <div class="card1  " style="width: 18rem;">
+                      <div class="tsir">
+                      <a href="{% url 'frontend:products' each.id %}"><img class="img-top pdd" src="{{ each.image.url }}" alt="Card image cap"></div></a>
+                      <div class="card-body card-cus-12">
+                        <a href="{% url 'frontend:products' each.id %}"  class="card-title cmt">{{ each.name  }}</a>
+                      </div>
+                    </div>
+                  {% endfor %}
+                {% endif %}
+                    
+              </div>
+          </div>
+      </div>
+  {% endblock content %}

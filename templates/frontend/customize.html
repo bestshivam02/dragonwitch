@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+  {% load static %}
+    {% block content %}
+    <section>
+        <div class="text-center top-div py-5">
+            <div class="container">
+                <h1>Customize Products</h1>
+                <p><a href="{% url 'frontend:index' %}">Home/</a>
+                    <a href="#">Categories/</a>
+                    <a href="{% url 'frontend:usercustomeproduct' %}">Customize Products/</a>
+                    <a href="#" style="color:black;">Men T-shirts</a>
+                </p>
+            </div>
+        </div>
+        <div class="container">
+          <div class="spcl-offer">
+            <img class="bimage-12 mt-3" src="{% static './images/summer sale.png' %}">
+          </div>
+        </div>
+        <div class="container">
+            <h1 class="custom mt-5">Custom Men T-Shirts <span>(3)</span> </h1>
+            <div class="row mt-3">
+                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6 mb-3">
+                    <div class="card">
+                       <div class="wishlist-card-icon">
+                  <button class="product-slider__fav js-fav"><span class="heart"></span></button>
+                </div>
+                        <a href="{% url 'frontend:usercustomedesign' %}"><img src="{% static './images/Image.png' %}" class="card-img-top" alt="..."></a>
+                        <div>
+                            <span class="top-card-text">4 Color Options</span>
+                            <span class="star-images" style="float:right;">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <hr>
+                        <div>
+                          <a href="{% url 'frontend:usercustomedesign' %}" class="card-text img-text">Customizable Black Printed T-shirt</a>
+                        </div>
+                        <div>
+                            <p><span>$107</span><span style="float:right;"><i class="fas fa-arrow-right"></i></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6 mb-3">
+                    <div class="card">
+                       <div class="wishlist-card-icon">
+                  <button class="product-slider__fav js-fav"><span class="heart"></span></button>
+                </div>
+                        <a href="{% url 'frontend:usercustomedesign' %}"><img src="{% static './images/red t shirt.png' %}" class="card-img-top" alt="..."></a>
+                        <div>
+                            <span class="top-card-text">5 Color Options</span>
+                            <span class="star-images" style="float:right;">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <hr>
+                        <div>
+                          <a href="{% url 'frontend:usercustomedesign' %}" class="card-text img-text">Customizable Red Printed T-shirt</a>
+                        </div>
+                        <div>
+                            <p><span>$107</span><span style="float:right;"><i class="fas fa-arrow-right"></i></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6 mb-3">
+                    <div class="card">
+                       <div class="wishlist-card-icon">
+                  <button class="product-slider__fav js-fav"><span class="heart"></span></button>
+                </div>
+                       <a href="{% url 'frontend:usercustomedesign' %}"><img src="{% static './images/white t shirt.png' %}" class="card-img-top" alt="..."></a>
+                        <div>
+                            <span class="top-card-text">2 Color Options</span>
+                            <span class="star-images" style="float:right;">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <hr>
+                        <div>
+                          <a href="{% url 'frontend:usercustomedesign' %}" class="card-text img-text">Customizable White Printed T-shirt</a>
+                        </div>
+                        <div>
+                            <p><span>$832</span><span style="float:right;"><i class="fas fa-arrow-right"></i></span></p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </section>
+  {% endblock content %}

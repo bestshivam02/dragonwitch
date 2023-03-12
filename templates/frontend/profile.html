@@ -1,0 +1,532 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+        <section >
+            <div class=" bg-account py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 account-left">
+                        <h3>My Account</h3>
+                        <p class="p-text">You can change or add more information</p>
+
+                        <br>
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs flex-column account-sidebar" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link content-arrow active" data-bs-toggle="tab" href="#user-profile">User
+                                    Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link content-arrow" data-bs-toggle="tab" href="#myorder">My Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link content-arrow" data-bs-toggle="tab" href="#trackorder">Track Order</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link content-arrow" data-bs-toggle="tab" href="#payment">Payment Methods</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link content-arrow" data-bs-toggle="tab" href="#myaddress">My Addresses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link content-arrow" data-bs-toggle="tab" href="#changepass">Change Password</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link content-arrow" data-bs-toggle="tab" href="#menu2">Log Out</a>
+                            </li>
+                        </ul>
+
+
+                    </div>
+
+                    <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 account-right">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div id="user-profile" class="container tab-pane active "><br>
+                                <form action="{% url 'frontend:updateprofile' %}" method="post" class="account-image-tab"
+                                    enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <label for="fileToUpload">
+                                        <div class="profile-pic" 
+                                        {% if request.user.profile_pic.url %}
+                                            style="background-image: url({{ request.user.profile_pic.url }});"
+                                        {% else %}
+                                            style="background-image: url({% static './images/dummy-img.png' %});"
+                                        {% endif %}
+                                        >
+                                            <!-- <span class="glyphicon glyphicon-camera"></span>
+                                    <span>Change Image</span> -->
+                                            <span><i class="fas fa-pen"></i></span>
+                                        </div>
+                                    </label>
+                                    <input type="File" name="profile_pic" id="fileToUpload">
+                                
+                                    <div class="user-form">
+                                        <div class="user-fname">
+                                            <label for="name">Your Name </label>
+                                            <input type="text" name="user_fname" id="name" placeholder="{{ request.user.first_name }}">
+                                            <input type="text" name="user_lname" id="name" placeholder="{{ request.user.last_name }}">
+                                        </div>
+                                        <div class="user-radio mt-3">
+                                            <label for="gender">Gender </label>
+
+                                            <input type="radio" id="female" value="female" name="user_gender" checked>
+                                            <label for="female">Female</label>
+                                            <input type="radio" id="male" value="male" name="user_gender" >
+                                            <label for="male">Male</label>
+                                        </div>
+                                        <div class="user-email mt-3">
+                                            <label for="mail">Email</label>
+                                            <input type="email" id="mail" name="user_mail" placeholder="{{ request.user.email }}">
+                                        </div>
+                                        <div class="user-phone mt-3">
+                                            <label for="phone">Phone Number</label>
+                                            <input type="number" id="phone" name="user_phone" 
+                                                placeholder="{{ request.user.mobile_no }}">
+                                        </div>
+                                        <div class="user-birth mt-3 ">
+                                            <label for="dob">Birth Date</label>
+                                            <!-- <select id="monthdropdown"></select>
+                                            <select id="daydropdown"></select>
+                                            <select id="yeardropdown"></select> -->
+                                            <input type="date" id="user_date_of_birth" name="user_date_of_birth">
+                                        </div>
+                                    </div>
+                                    <div class="user-button text-center mt-3 mb-4">
+                                        <button type="submit">Save Changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="myorder" class="container tab-pane fade"><br>
+                                {% if order_history %}
+                                    {% for each in order_history %}
+                                        <div class="row account-order">
+                                            <div class="col-lg-2 col-md-6 col-sm-12 col-xs-12 account-img">
+                                                <img src="{{ each.product.image.url }}" alt="">
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 account-text">
+                                                <p>{{ each.product.name }}</p>
+                                                <p>qty : {{ each.qty }}</p>
+                                                <p>$<span>{{ each.product.price }}</span></p>
+                                            </div>
+                                            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 account-order-id">
+                                                <p><span> Order ID </span>{{ each.id }}</p>
+                                                <p><span>Order Placed </span>{{ each.created_on}}</p>
+                                                <!-- <p><span>Ship to </span>James Deller</p> -->
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12  account-buttons-2">
+                                                <button type="button" class="mb-2 acc-btn-1" data-bs-toggle="modal"data-bs-target="#exampleModalask{{ each.product.id }}">Ask Product Qs</button>
+
+                                                <!-- ask product Modal start -->
+                                                <div class="modal fade" id="exampleModalask{{ each.product.id }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ each.product.id }}"
+                                                aria-hidden="true">
+                                                    <div class="modal-dialog">
+
+                                                        <div class="modal-content">
+                                                            <h5 class="modal-close" data-bs-dismiss="modal">&#10005;</h5>
+                                                            <h5 class="modal-title" id="exampleModalLabel">{{ each.product.name }}</h5>
+                                                            <div>
+                                                                <p><span class="sign-text">Someone will answer your question shortly </span>
+                                                                </p>
+                                                            </div>
+                                                            <form action=''>
+                                                                <label class="label-login" for="question">Enter Question</label>
+                                                                <input type="text" id="question" name="question" class="w-100 label-input">
+                                                                <label class="label-login" for="description">Description</label>
+                                                                <input type="text" id="description" name="description" placeholder=""
+                                                                    class="w-100 label-input">
+                                                                <input type="submit" value="Submit" class="btn btn-large">
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- ask product qs modal end -->
+
+                                                <button type="button" class="acc-btn-2" data-bs-toggle="modal" data-bs-target="#exampleModalreview{{ each.product.id }}">Write a Review</button>
+                                                <!--Review Modal start -->
+                                                <div class="modal fade" id="exampleModalreview{{ each.product.id }}" tabindex="1" aria-labelledby="exampleModalreview{{ each.product.id }}"
+                                                aria-hidden="false">
+                                                    <div class="modal-dialog">
+
+                                                        <div class="modal-content modal-content-review">
+                                                            <h5 class="modal-close" data-bs-dismiss="modal">&#10005;</h5>
+                                                            <h5 class="modal-title" id="exampleModalLabel">Write your review</h5>
+                                                            <section class='rating-widget'>
+  
+                                                                <!-- Rating Stars Box -->
+                                                                <div class='rating-stars text-center'>
+                                                                    <ul id='stars'>
+                                                                    <li class='star' title='Poor' data-value='1'>
+                                                                        <i class='fa fa-star fa-fw'></i>
+                                                                    </li>
+                                                                    <li class='star' title='Fair' data-value='2'>
+                                                                        <i class='fa fa-star fa-fw'></i>
+                                                                    </li>
+                                                                    <li class='star' title='Good' data-value='3'>
+                                                                        <i class='fa fa-star fa-fw'></i>
+                                                                    </li>
+                                                                    <li class='star' title='Excellent' data-value='4'>
+                                                                        <i class='fa fa-star fa-fw'></i>
+                                                                    </li>
+                                                                    <li class='star' title='WOW!!!' data-value='5'>
+                                                                        <i class='fa fa-star fa-fw'></i>
+                                                                    </li>
+                                                                    </ul>
+                                                                </div>
+                                                                
+                                                                <div class='success-box'>
+                                                                    <div class='clearfix'></div>
+                                                                
+                                                                    <div class='text-message'></div>
+                                                                    <div class='clearfix'></div>
+                                                                </div>
+                                                            
+                                                            
+                                                            
+                                                            </section>
+                                                            <form action="{% url 'Products:update_product_review' each.product.id %}" method="post">
+                                                                {% csrf_token %}    
+                                                                <label class="label-login" for="title">{{ each.product.name }}</label>
+                                                                <input type="text" id="title" name="title" class="w-100 label-input">
+                                                                <label class="label-login" for="review">Your Review</label>
+                                                                <input type="textarea" id="review-1" name="review" placeholder="" class="w-100 label-input">
+                                                                <!-- <div class="small-jkt-img mt-2">
+                                                                    <img src="./images/small-jacket.png" src="">
+                                                                    <img src="./images/small-black-jkt.png" src="">
+                                                                </div> -->
+                                                                <input type="submit" value="Submit" class="btn btn-large">
+                                                                <!-- <div class="image-upload">
+                                                                    <label for="file-input">
+                                                                    <i class="far fa-image-polaroid"></i>
+                                                                    </label>
+                                                                <input type="file-input" id="myfile" name="myfile" class="file-content">
+                                                                </div> -->
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Review modal end -->
+                                                <!-- <div class="right-icon">
+                                                <i class="fas fa-caret-right"></i>
+                                            </div> -->
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                                                        
+                            <div id="trackorder" class="container tab-pane fade"><br>
+                                <div class="">
+                                <p>
+                                    To track your order please enter your Order ID in the box below and press the "Track"
+                                    button. This was given to you on your receipt and in the confirmation email you should
+                                    have received.
+                                </p>
+                                <hr>
+                                <form action="" class="track-form mt-3">
+                                    <label for="orderid">Order ID</label>
+                                    <input type="text" id="orderid" name="order" class="mt-1">
+                                    <label for="billing" class="mt-2">Billing Email</label>
+                                    <input type="text" id="billing" name="billing" class="mt-1">
+                                    <button type="button" class="mt-3">
+                                        Tracking Order
+                                    </button>
+                                </form>
+                                </div>
+                            </div>
+                            <div id="payment" class="container tab-pane fade mt-5">
+                            <div class="payment-1 d-flex">
+                            <div class="card-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="debit-text">
+                                <p>Add Debit/ Credit Card</p>
+                            </div>
+                                <div class="right-icon">
+                                    <i class="fas fa-caret-right"></i>
+                                </div>
+                            </div>
+                            <div class="payment-1 d-flex mt-3">
+                                <div class="card-icon">
+                                    <i class="fab fa-cc-paypal"></i>
+                                </div>
+                                <div class="debit-text">
+                                    <p>Add UPI ID</p>
+                                </div>
+                                    <div class="right-icon">
+                                        <i class="fas fa-caret-right"></i>
+                                    </div>
+                                </div>
+                                <div class="payment-1 d-flex my-3">
+                                    <div class="card-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="debit-text ">
+                                        <p>Add Debit/ Credit Card</p>
+                                    </div>
+                                        <div class="right-icon">
+                                            <i class="fas fa-caret-right"></i>
+                                        </div>
+                                    </div>
+                            </div>
+                            <div id="myaddress" class="container tab-pane fade mt-4">
+                                {% if user_address %}
+                                    {% for each in user_address %}
+                                        <div class="row address-row">
+                                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 address-left-col">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                                    <h3>{{ request.user.full_name}}</h3>
+                                                    <p>{{ each.state }}, {{ each.country }}</p>
+                                                    </div>
+                                                <div class="col-md-6">
+                                                    <a class="address-link" href="{% url 'frontend:index' %}">Home</a>
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 address-right-col mt-3">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                                                    <p>{{ each.city }}, {{ each.zipcode }}</p>
+                                                    
+                                                    {% if request.user.mobile_no %}
+                                                        <p>Contact Number : <span class="address-no">{{ request.user.mobile_no }}</span></p>                                                    
+                                                    {% endif %}
+                                                        
+                                                    </div>
+                                                <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 link-address">
+                                                    <p><a class="link-2-address" href="{% url 'accounts:delete_user_address' each.id %}">Delete</a></p>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}                                    
+                                {% endif %}
+                                        
+                            <div class="hjghj">
+                                <div class="new-address py-3 mt-3"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <p>Add New Address</p>
+                                </div>
+                                <div class="modal fade  " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content cus-t5r">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="staticBackdropLabel">Address</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body address-8hff">
+                                           
+                                            <form action="{% url 'accounts:add_new_address' %}" method="post" class="password-form">
+                                                <div class="row">    
+                                                    {% csrf_token %}
+                                                    <label for="country">Country<sup>*</sup></label>
+                                                    <select name="country" id="checkout_country" required="">
+                                                        <option value="india">india</option>
+                                                        <option value="not_india">Not india</option>
+                                                    </select>
+                                                    <label for="street">Street Address<sup>*</sup></label>
+                                                    <input type="text" name="address" id="profile_address" placeholder="Home number and street address" required="">
+                                                    <label for="postal">Postcode/Zip<sup>*</sup></label>
+                                                    <input type="number" id="profile_postal" name="postal" required="">
+                                                    <label for="town">Town &amp; City</label>
+                                                    <input type="text" name="city" id="profile_city" required="">
+                                                    <label for="state">state </label>
+                                                    <input type="text" name="state" id="profile_state" required>
+                                                    
+                                                    <button class="sub-cus-btn-8">submit</button>
+                                                </div>
+                                            </form>
+                                           
+                                        </div>
+                                        <!-- <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                          <button type="button" class="btn btn-primary">Understood</button>
+                                        </div> -->
+                                      </div>
+                                    </div>
+                                  </div>
+    
+    
+                                
+                                <hr>
+                                <!-- <label class="filelabel">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span class="title">
+                                        Add New Address
+                                    </span>
+                                    <input class="FileUpload1" id="FileInput" name="booking_attachment" type="file"/>
+                                </label> -->
+                              </div>
+                            
+                        </div>
+                        <div id="changepass" class="container tab-pane fade mt-4">
+                        <form action="{% url 'accounts:change_password' %}" method="post" class="password-form">
+                            {% csrf_token %}
+                            <div class="row">
+                            <div class="old-password col-md-12">
+                                <div class="row">
+                            <div class="col-md-3 col-lg-3">
+                            <label for="oldpass">Current Password</label>
+                            </div>
+                            <div class="eye-input col-md-9 col-lg-9">
+                                <input type="password" id="password" class="form-control" name="oldpassword">
+                                <i class="toggle-password fa fa-fw fa-eye-slash"></i>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="new-password col-md-12  mt-4">
+                                <div class="row">
+                                <div class="col-md-3 col-lg-3">
+                                    <label for="newpass">New Password</label>
+                                </div>
+                                    <div class="eye-input col-md-9 col-lg-9">
+                                    <input type="password" id="password" class="form-control" name="newpassword">
+                                    <i class="toggle-password fa fa-fw fa-eye-slash"></i>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                            <div class="user-button text-center mt-4 mb-4">
+                                <button type="submit">Save Changes</button>
+                            </div>
+                            </div>
+                            </div>
+                        </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!-- </div> -->
+        </section>
+
+
+
+        <script>
+            $(document).ready(function(){
+
+                /* 1. Visualizing things on Hover - See next part for action on click */
+                $('#stars li').on('mouseover', function(){
+                var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+                
+                // Now highlight all the stars that's not after the current hovered star
+                $(this).parent().children('li.star').each(function(e){
+                if (e < onStar) {
+                $(this).addClass('hover');
+                }
+                else {
+                $(this).removeClass('hover');
+                }
+                });
+                
+                }).on('mouseout', function(){
+                $(this).parent().children('li.star').each(function(e){
+                $(this).removeClass('hover');
+                });
+                });
+                
+                
+                /* 2. Action to perform on click */
+                $('#stars li').on('click', function(){
+                var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+                var stars = $(this).parent().children('li.star');
+                
+                for (i = 0; i < stars.length; i++) {
+                $(stars[i]).removeClass('selected');
+                }
+                
+                for (i = 0; i < onStar; i++) {
+                $(stars[i]).addClass('selected');
+                }
+                
+                // JUST RESPONSE (Not needed)
+                var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+                var msg = "";
+                if (ratingValue > 1) {
+                msg = "Thanks! You rated this " + ratingValue + " stars.";
+                }
+                else {
+                msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
+                }
+                responseMessage(msg);
+                
+                });
+                
+                
+                });
+                
+                
+                function responseMessage(msg) {
+                $('.success-box').fadeIn(200);  
+                $('.success-box div.text-message').html("<span>" + msg + "</span>");
+                }
+        </script>
+        <script>
+
+
+            // birth date---------------------------------------------------
+  
+                var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+                function daysInMonth(month, year) {
+                    return new Date(year, month, 0).getDate();
+                }
+
+                function populateDates(){
+                    var today = new Date(),
+                        day = today.getUTCDate(),
+                        month = today.getUTCMonth(),
+                        year = today.getUTCFullYear(),
+                        daysInCurrMonth = daysInMonth(month, year);
+
+                    // Year
+                    for(var i = -120; i < 1; i++){
+                    var opt = document.createElement('option');
+                    opt.value = i + year;
+                    opt.text = i + year;
+                    yeardropdown.appendChild(opt);
+                    }
+
+                    // Month
+                    for(var i = 0; i < 12; i++){
+                    var opt = document.createElement('option');
+                    opt.value = months[i];
+                    opt.text = months[i];
+                    monthdropdown.appendChild(opt);
+                    }
+
+                    // Day
+                    for(var i = 0; i < daysInCurrMonth; i++){
+                    var opt = document.createElement('option');
+                    opt.value = i + 1;
+                    opt.text = i + 1;
+                    daydropdown.appendChild(opt);
+                    }
+                }
+
+                var daydropdown = document.getElementById("daydropdown"),
+                    monthdropdown = document.getElementById("monthdropdown"),
+                    yeardropdown = document.getElementById("yeardropdown");
+
+                // Change handler for months
+                monthdropdown.onchange = function(){
+                    var newMonth = months.indexOf(monthdropdown.value) + 1,
+                        newYear = yeardropdown.value;
+
+                    daysInCurrMonth = daysInMonth(newMonth, newYear);
+
+                    daydropdown.innerHTML = "";
+                    for(var i = 0; i < daysInCurrMonth; i++){
+                    var opt = document.createElement('option');
+                    opt.value = i + 1;
+                    opt.text = i + 1;
+                    daydropdown.appendChild(opt);
+                    }
+                }
+            populateDates()
+
+            
+        </script>
+    {% endblock content %}

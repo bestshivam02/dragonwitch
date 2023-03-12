@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+      <section>
+        <div class="text-center top-div py-5">
+          <div class="container">
+            <h1>Shopping Cart</h1>
+            <p><a href="{% url 'frontend:index' %}">Home/</a><a href="{% url 'frontend:usercartlist' %}" style="color:black;">Cart</a></p>
+          </div>
+        </div>
+        <section>
+                <div class="container"> 
+                    <div class="row cart-row mt-5">
+                        <div class="col-md-12 col-lg-8 col-sm-12 col-xs-12 scrollable billing-list" id="cart_append_card">
+                          <!-- <form action="{% url 'accounts:register' %}" id="sign_form" method="post"> -->
+                          {% if request.user.is_authenticated %}  
+                            {% if user_cartlist %}
+                              {% for each in user_cartlist %}
+                                
+                                <div class="row border-cart ">
+                                    <div class="col-md-4  col-lg-4 col-sm-6 col-xs-6  img-text-cart">
+                                    <div class="small-jkt-img d-flex">
+                                        <a href="singlepdct.html"><img src="{{ each.product.image.url }}" ></a>
+                                        <h4>{{ each.product.name }}</h4> 
+                                    </div>
+                                </div>
+                                    <!-- <div class="cart-dropdown"> -->
+                                        <div class="col-md-4 col-lg-4 col-xs-6 col-sm-6 dropdown-cart d-flex">
+                                        
+                                          <p class="span-cart-552" >Size : <span>{{ each.size.name }}</span></p>
+                                        </div>
+                                    <!-- </div> -->
+                                    <div class="col-md-2 col-lg-2 col-sm-6 col-xs-6 d-flex cart-qty">
+                                        <div class="plus-minus-button">
+                                            <form class="d-flex text-center">
+
+                                                  <input type="number" id="number" class="number singlepdct_qunatity" disabled value="{{ each.qty }}" />
+                                            </form>
+                                          </div>
+                                        </div>
+                                          <div class="col-md-2 col-lg-2 col-sm-6 col-xs-6 cart-price">
+                                              <div class="main-552 text-center">
+                                              <p class="span-cart-552" >$<span class="cart_price">{{ each.product.price }}</span></p>
+                                            </div>
+                                        </div>
+                                        <span style="cursor: pointer;" onclick="remove_pro_from_cart('{{ each.product.name }}','{{ each.product.id }}')" ><i  class="fas fa-times cross-wrong"></i></span>
+                                </div>
+                              {% endfor %}
+                            {% else %}
+                            <h3>you cart is empty shop for add products</h3>
+                            {% endif %}
+                          {% else %}
+                          <script>
+                            update_cart_table()
+                          </script>
+                          {% endif %}
+                          <!-- </form> -->
+                        </div>
+                        {% if user_cartlist %}
+                          <div class="col-md-12 col-lg-4 col-xs-12 col-sm-12 cart-total-main">
+                              <h4 class="text-center">Card Total</h4>
+                              <hr>
+                              <span class="cart-total">Sub Total</span><span class="cart-total-right" style="float:right;">$<span id="total_before_shipping">0</span></span>
+                              <br>
+                              <hr>
+                              <span class="cart-total">Shipping</span><span class="cart-total-right" style="float:right;">$<span id="cart_shipping">0</span></span>
+                              {% comment %} <br> {% endcomment %}
+                              {% comment %} <span style="float:right;"><a href="shipping.html">Calculate Shipping</a></span> {% endcomment %}
+                              {% comment %} <br> {% endcomment %}
+                              <hr>
+                              <span class="cart-total">Total</span><span class="cart-total-right" style="float:right;">$<span id="total_after_shipping">0</span></span>
+                              <br>
+                              {% if request.user.is_authenticated %}
+                                <a href="{% url 'frontend:usercheckout' %}"><button type="button">Checkout</button></a>
+                              {% else %}
+                              <a data-bs-toggle="modal" data-bs-target="#exampleModal"><button type="button">Checkout</button></a>
+                              {% endif %}
+                          </div>
+                        {% endif %}
+                        <div class="col-md-12 col-lg-8 col-xs-12 col-sm-12 cart-coupon mt-5">
+
+                                <span class="coupon-right">
+                                    <a href="{% url 'frontend:index' %}"><button type="submit">Continue Shopping</button> </a>
+                                </span>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <script>
+          function remove_pro_from_cart(product_name,product_id){
+      
+            /**
+             * 
+             */
+    
+            var response_status =  ajax_call_remove_cart(product_name,product_id)
+            if (response_status){
+              window.location.reload();
+            } 
+      }
+        </script>
+        <script>
+          document.addEventListener("DOMContentLoaded", function(){
+            var total_price = 0
+            for(var i = 0; i < document.getElementsByClassName('cart_price').length; i++){
+                var price = parseInt(document.getElementsByClassName('cart_price')[i].innerHTML)
+                total_price = total_price + price
+            }
+            document.getElementById('total_before_shipping').innerHTML = total_price
+            if (parseInt(total_price) >= 999){
+              document.getElementById('cart_shipping').innerHTML = 0
+            }else{
+              document.getElementById('cart_shipping').innerHTML = 199
+            }
+            
+            document.getElementById('total_after_shipping').innerHTML = parseInt(total_price) + parseInt(document.getElementById('cart_shipping').innerHTML)
+          })
+        </script>
+    {% endblock content %}

@@ -1,0 +1,284 @@
+{% extends 'base.html' %}
+  {% load static %}
+    {% block content %}
+  <div class="text-center top-div py-5">
+    <div class="container">
+      <h1>Customize Products</h1>
+      <p><a href="{% url 'frontend:index' %}">Home/</a>
+        <a href="acessories.html">Categories/</a>
+        <a href="{% url 'frontend:usercustomeproduct' %}" style="color:black;">Customize Products</a></p>
+    </div>
+  </div>
+  <!-- banner start-->
+<div class="container">
+  <div class="spcl-offer">
+  <img class="mt-4" src="{% static './images/spcl offr.png' %}">
+</div>
+</div>
+  <!-- banner end -->
+  <h1 class="by mt-4">Customize by Categories</h1>
+  <div class="mt-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="card1" style="width: 18rem">
+          <div class="tsir">
+            <a href="{% url 'frontend:usercustomeproduct' %}"><img class="img-top pdd" src="{% static './images/Image 35.png' %}" alt="Card image cap" /></a>
+          </div>
+          <div class="card-body acc-12">
+            <a href="{% url 'frontend:usercustomeproduct' %}" class="card-title cmt">Create Men T-shirts</a>
+          </div>
+        </div>
+        <div class="card1" style="width: 18rem">
+          <div class="tsir">
+            <a href="{% url 'frontend:usercustomeproduct' %}"><img class="img-top pdd" src="{% static './images/Image 35.png' %}" alt="Card image cap" /></a>
+          </div>
+          <div class="card-body acc-12">
+            <a href="{% url 'frontend:usercustomeproduct' %}" class="card-title cmt">Create Women T-shirts</a>
+          </div>
+        </div>
+        <div class="card1" style="width: 18rem">
+          <div class="tsir">
+            <a href="{% url 'frontend:usercustomeproduct' %}"><img class="img-top pdd" src="{% static './images/Image 35.png' %}" alt="Card image cap" /></a>
+          </div>
+          <div class="card-body acc-12">
+            <a href="{% url 'frontend:usercustomeproduct' %}" class="card-title cmt">Create Kids T-shirts</a>
+          </div>
+        </div>
+        <div class="card1" style="width: 18rem">
+          <div class="tsir">
+            <a href="{% url 'frontend:usercustomeproduct' %}"><img class="img-top pdd" src="{% static './images/Image 35.png' %}" alt="Card image cap" /></a>
+          </div>
+          <div class="card-body acc-12">
+            <a href="{% url 'frontend:usercustomeproduct' %}" class="card-title cmt">Create Tank Tops</a>
+          </div>
+        </div>
+        <div class="card1" style="width: 18rem">
+          <div class="tsir">
+            <a href="{% url 'frontend:usercustomeproduct' %}"><img class="img-top pdd" src="{% static './images/Image 35.png' %}" alt="Card image cap" /></a>
+          </div>
+          <div class="card-body acc-12">
+            <a href="{% url 'frontend:usercustomeproduct' %}" class="card-title cmt">Create Hoodies</a>
+          </div>
+        </div>
+        <div class="card1" style="width: 18rem">
+          <div class="tsir">
+            <a href="{% url 'frontend:usercustomeproduct' %}"><img class="img-top pdd" src="{% static './images/Image 35.png' %}" alt="Card image cap" /></a>
+          </div>
+          <div class="card-body acc-12">
+            <a href="{% url 'frontend:usercustomeproduct' %}" class="card-title cmt">Create Sweatshirts</a>
+          </div>
+        </div>
+        <div class="card1" style="width: 18rem">
+          <div class="tsir">
+            <a href="{% url 'frontend:usercustomeproduct' %}"><img class="img-top pdd" src="{% static './images/Image 35.png' %}" alt="Card image cap" /></a>
+          </div>
+          <div class="card-body acc-12">
+            <a href="{% url 'frontend:usercustomeproduct' %}" class="card-title cmt">Create Jeans</a>
+          </div>
+        </div>
+        <div class="card1" style="width: 18rem">
+          <div class="tsir">
+            <a href="{% url 'frontend:usercustomeproduct' %}"><img class="img-top pdd" src="{% static './images/Image 35.png' %}" alt="Card image cap" /></a>
+          </div>
+          <div class="card-body acc-12">
+            <a href="{% url 'frontend:usercustomeproduct' %}" class="card-title cmt">Create Phone Cases & Bags</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grr">
+    <div>
+      <h1 class="by pt-5">Your Thoughts, Our Prints!</h1>
+      <p class="iden pb-5">
+        Brand identity starts with our custom imprinted products
+      </p>
+    </div>
+    <div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 padding-class">
+            <h1 class="by1">A Touch of Artistry</h1>
+            <p class="iden1">
+              Here, at Denwer, all custom printed products showcase a bit of
+              artistic brilliance. We apply stylish fonts, icons, and imagery
+              from a vast library. You can even pick any of the styles from
+              our library for your custom t-shirts, hoodies, and more. If you
+              need unique and personalized hats, tees or hoodies with graphics
+              or text, we have you covered. We have over 100 products to match
+              your needs well.
+            </p>
+            <a href="color.html"><button type="button" class="tton">Create Now</button></a>
+          </div>
+          <div class="col-md-6 whi">
+            <img src="{% static './images/1568788228-20074541015d81cf045137d2-74959478@2x.png' %}" class="grn" />
+          </div>
+          <div class="col-md-6  whi mt-5">
+            <img src="{% static './images/1568788430-1206740205d81cfce2b4423-60645169.png' %}" class="grn" />
+          </div>
+          <div class="col-md-6 padding-class-2">
+            <h1 class="by2">A Memorable Gift</h1>
+            <p class="iden2">
+              Be it custom clothing or printed products; we help you find the
+              one you exactly need. Our clothing design includes stunning
+              graphics, logo design, quotes, slogans, and text of your choice.
+              You can even add your artwork to the design. Custom clothes are
+              memorable gifting options too. They let the recipients know that
+              you have put your thought into it. Gift them on occasions like
+              farewells, birthdays, anniversaries, baby showers and graduation
+              day; and witness your recipient’s happy reaction.
+            </p>
+            <a href="color.html"><button type="button" class="tton1">Create Now</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="container">
+      <h1 class="asked-qs mt-5 text-center">Frequently Asked Questions</h1>
+      <div class="accordion accordion-change mt-5" id="accordionExample">
+        {% if faq %}
+          {% for each in faq %}
+            <div class="accordion-item mb-2">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button accordion-head" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  {{ each.question }}
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body accordion-p-text">
+                  {{ each.answer }}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <!-- <div class="accordion-item mb-2">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button accordion-head collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Can I mix the sizes of the design clothes in my order?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body accordion-p-text">
+              Yes, you can print on the sleeves of your custom clothes. Denwer has recently introduced a feature to the
+              new interface which let customers print on either of the sleeves, front, back, outside label, or inside
+              label of their clothes. The process is extremely seamless. Just choose the t-shirt that you want to print
+              and select one option (left sleeve or right sleeve) from the left panel. Now, you can add your artwork or
+              text using the right panel. If you don’t have a design of your own, you choose one from our predefined
+              artwork.<br><br> Once you’re satisfied with the design and curious to see how it will actually look after
+              printing, you can preview mockups.<br><br> Click to give our custom printing tool a try.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item mb-2">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button accordion-head collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              How to buy custom clothes at Denwear?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body accordion-p-text">
+              Yes, you can print on the sleeves of your custom clothes. Denwer has recently introduced a feature to the
+              new interface which let customers print on either of the sleeves, front, back, outside label, or inside
+              label of their clothes. The process is extremely seamless. Just choose the t-shirt that you want to print
+              and select one option (left sleeve or right sleeve) from the left panel. Now, you can add your artwork or
+              text using the right panel. If you don’t have a design of your own, you choose one from our predefined
+              artwork.<br><br> Once you’re satisfied with the design and curious to see how it will actually look after
+              printing, you can preview mockups.<br><br> Click to give our custom printing tool a try.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item mb-2">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button accordion-head collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              Will I preview my design before I order it?
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body accordion-p-text">
+              Yes, you can print on the sleeves of your custom clothes. Denwer has recently introduced a feature to the
+              new interface which let customers print on either of the sleeves, front, back, outside label, or inside
+              label of their clothes. The process is extremely seamless. Just choose the t-shirt that you want to print
+              and select one option (left sleeve or right sleeve) from the left panel. Now, you can add your artwork or
+              text using the right panel. If you don’t have a design of your own, you choose one from our predefined
+              artwork.<br><br> Once you’re satisfied with the design and curious to see how it will actually look after
+              printing, you can preview mockups.<br><br> Click to give our custom printing tool a try.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item mb-2">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button accordion-head collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              What resolution do designs need to be uploaded for printing?
+            </button>
+          </h2>
+          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body accordion-p-text">
+              Yes, you can print on the sleeves of your custom clothes. Denwer has recently introduced a feature to the
+              new interface which let customers print on either of the sleeves, front, back, outside label, or inside
+              label of their clothes. The process is extremely seamless. Just choose the t-shirt that you want to print
+              and select one option (left sleeve or right sleeve) from the left panel. Now, you can add your artwork or
+              text using the right panel. If you don’t have a design of your own, you choose one from our predefined
+              artwork.<br><br> Once you’re satisfied with the design and curious to see how it will actually look after
+              printing, you can preview mockups.<br><br> Click to give our custom printing tool a try.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item mb-2">
+          <h2 class="accordion-header" id="headingSix">
+            <button class="accordion-button accordion-head collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              Can I upload my own artwork?
+            </button>
+          </h2>
+          <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body accordion-p-text">
+              Yes, you can print on the sleeves of your custom clothes. Denwer has recently introduced a feature to the
+              new interface which let customers print on either of the sleeves, front, back, outside label, or inside
+              label of their clothes. The process is extremely seamless. Just choose the t-shirt that you want to print
+              and select one option (left sleeve or right sleeve) from the left panel. Now, you can add your artwork or
+              text using the right panel. If you don’t have a design of your own, you choose one from our predefined
+              artwork.<br><br> Once you’re satisfied with the design and curious to see how it will actually look after
+              printing, you can preview mockups.<br><br> Click to give our custom printing tool a try.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item mb-2">
+          <h2 class="accordion-header" id="headingSeven">
+            <button class="accordion-button accordion-head collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              How can I make sure that my design is centered on my clothes?
+            </button>
+          </h2>
+          <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body accordion-p-text">
+              Yes, you can print on the sleeves of your custom clothes. Denwer has recently introduced a feature to the
+              new interface which let customers print on either of the sleeves, front, back, outside label, or inside
+              label of their clothes. The process is extremely seamless. Just choose the t-shirt that you want to print
+              and select one option (left sleeve or right sleeve) from the left panel. Now, you can add your artwork or
+              text using the right panel. If you don’t have a design of your own, you choose one from our predefined
+              artwork.<br><br> Once you’re satisfied with the design and curious to see how it will actually look after
+              printing, you can preview mockups.<br><br> Click to give our custom printing tool a try.
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+  </section>
+  {% endblock content %}

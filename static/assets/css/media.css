@@ -1,0 +1,72 @@
+@media (max-width: 1350px){
+    .ct-footer-pre > .inner { display: flex; align-items: center; }
+    span.cus-text-footer { white-space: initial; }
+    .ct-footer-pre .form-group { display: flex; flex-direction: column-reverse; align-items: flex-end; }
+    .ct-footer-pre .form-group .col-md-6:first-child { margin-top: 15px; }
+    .ct-footer-list > li:last-child{width: 9%;}
+    .carousel-item { height: 463px; }
+    .top_nav p { text-align: left; }
+    .top_nav .col-md-4.mt-2:first-child { margin-left: 0; }
+    .top_nav .col-md-4.mt-2:last-child { margin-right: 0; }
+}
+@media (max-width: 1250px){
+    .carousel-caption-1 h1 { font-size: 34px; }
+    .caption-text-2 { font-size: 16px; max-width: 430px; }
+}
+@media (max-width: 1199px){
+    header .container, .ct-footer-list > li:first-child { max-width: 100%; }
+    .ct-footer-list > li:first-child{width: 100%;}
+    .ct-footer-list > li:first-child br { display: none; }
+    .ct-footer-list > li:first-child span{display: block;}
+    .ct-footer-list.text-center-sm { display: flex; flex-wrap: wrap; }
+    .ct-footer-list > li:last-child { width: 33.3333%; }
+    ul.ct-footer-list.text-center-sm { padding: 20px 0 36px; }
+}
+@media (max-width: 1080px){
+    ul.nav-links { flex-direction: column; position: fixed; top: 0; right: 0; background-color: #fff; width: 290px; height: 100%; transition: all ease 0.5s; transform: translateX(100%); }
+    .backdrop { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000000cc; opacity: 0; pointer-events: none; transition: all ease 0.5s; }
+    .sidebarOpened .header_nav { transform: translateX(0); justify-content: center;}
+    .sidebarOpened .backdrop { opacity: 1; pointer-events: all; }
+    .sidebarOpened { overflow: hidden; }
+    .nav-links li:not(:nth-last-child(2), :nth-last-child(3)) { width: 100%; }
+    .nav-links li { margin: 10px 0!important; }
+    .nav-links li:nth-last-child(2), .nav-links li:nth-last-child(3) { margin-right: auto!important; }
+    .nav-links li:nth-last-child(2) { transform: translate(53px, -43px); }
+    .nav-links.open{    clip-path: circle(1100px at 90% -10%);
+        -webkit-clip-path: circle(1100px at 90% -10%);}
+}
+@media (max-width: 992px){
+    span.cus-text-footer { font-size: 12px!important; }
+    .ct-footer-pre .form-group .col-md-6:first-child { text-align: right; }
+    .col-md-4.col-sm-4.col-lg-4.col-xs-4.my-3.width-card { width: 100%; }
+    .men_wear_sec .col-md-6.col-sm-8.col-lg-6.col-xs-6.mb-3 { width: 100%; }
+    
+}
+@media (max-width: 767px){
+    .carousel-caption-1.d-none.d-md-block { width: 100%; padding-top: 58px!important; top: 50%; transform: translateY(-50%); bottom: auto; }
+    .carousel-item { background-image: url(../../../media/main_carousel/Image_Banner_rT5w70r.png); background-position: 31% 41%; background-size: 189%; }
+    .carousel-item { height: 390px; }
+    .carousel-item img { opacity: 0; }
+}
+@media (max-width: 570px){
+    .carousel-item { background-size: cover;     background-position: 18%;}
+    .counter-content h2 { width: 100%; font-size: 22px; }
+    #timer>div { min-width: 62px; flex: 1; }
+    div#timer { width: 100%; }
+    .latest-coll { font-size: 20px; }
+    #collection-1 .slick-arrow, #recommend .slick-arrow { top: -16px!important; }
+    .gg_sec { justify-content: flex-start; }
+    .gg_sec p, .gg_sec span { font-size: 13px; }
+    .ct-footer-pre { flex-direction: column; }
+    .ct-footer-pre .inner.foot-logo { margin-left: auto; }
+    .ct-footer-pre > .inner:first-child { margin-right: 0; }
+    .ct-footer-pre .foot-logo span { padding-right: 10px; }
+    .ct-footer-pre .form-group { margin: 24px -10px; }
+    .ct-footer-list > li:last-child {width: 100%;}
+    ul.ct-footer-list.text-center-sm address { padding-top: 0; }
+    #carouselExampleCaptions .carousel-control-next, #carouselExampleCaptions .carousel-control-prev{display: none;}
+    h1.custom.mt-5 { font-size: 23px; }
+    .custom span { font-size: 18px; }
+    .top-div h1 { font-size: 24px; }
+    section#typography .col-md-4.span6>div:first-child {--side_offset: 0;}
+}

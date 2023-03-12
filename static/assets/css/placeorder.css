@@ -1,0 +1,34 @@
+.view-12{
+    font-size: 36px;
+    font-family: 'Poppins','SemiBold';
+    font-weight: 600;
+    text-align: center;
+}
+.order-placed i{
+    color:#3A977D;
+    font-size: 37px;
+}
+.order-23{
+    font-size: 26px;
+    font-weight:'Poppins','SemiBold';
+    font-weight: 600;
+}
+.order-light{
+    font-size:15px;
+    font-family: 'Poppins','Regular';
+    color:#000000A6;
+}
+.order-placed button{
+    background-color: #940205;
+    font-family: 'Poppins','Medium';
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    color:#FFFFFF;  
+    width:320px;
+    height:48px;
+    transition: 0.3s all ease-out;
+}
+.order-placed button:hover{
+    background-color: #F7AA1C;
+}

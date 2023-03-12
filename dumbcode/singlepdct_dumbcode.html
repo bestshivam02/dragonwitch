@@ -1,0 +1,818 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <section>
+    <div class="text-center top-div py-2">
+      <div class="container">
+        <p><a href="#home">Home/</a><a href="#products">Products/</a><a href="#winter">Winter/</a><a href="#product"
+            style="color:black;">Product</a></p>
+      </div>
+    </div>
+  </section>
+  <!-- second-section -->
+  <section>
+    <div class="container">
+      <div class="row mt-5">
+        {% if each_product %}
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+          <div id="carouselExampleControls" class="carousel slide slider-bg" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              {% if product_image %}
+                {% for each in product_image %}
+                  {% if forloop.counter0|divisibleby:"3" %}
+                    <div class="carousel-item active">
+                  {% else %}
+                    <div class="carousel-item">
+                  {% endif %}
+                      <img src="{{ each.image.url }}" class="d-block m-auto slider-image" alt="...">
+                    </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+            <div class="modal-slider">
+              <form action="">
+                <button class="m-1">
+                  <i class="fas fa-caret-right"></i>
+                </button>
+                <button>
+                  <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal4"><i
+                      class="fas fa-expand-alt"></i></a>
+                </button>
+
+              </form>
+            </div>
+            <div class="d-inline-block slider-arrow" style="text-align:end;">
+              <button class="carousel-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-prev-icon" aria-hidden="true"><i class="fas fa-angle-left"></i></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-next-icon" aria-hidden="true"><i class="fas fa-angle-right"></i></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+          <div class="bottom-btns-slider">
+            {% if product_image %}
+                {% for each in product_image %}
+                  <img src="{{ each.image.url }}" alt="">
+                <!-- <img src="{% static './images/bottom-jkt.png' %}" src=""> -->
+                {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+          <h3 class="jacket-text">{{ each_product.name }}</h3>
+          <div class="d-flex">
+            <span class="star-images">
+              <!-- <i class="fas fa-star"></i> -->
+              <!-- <i class="fas fa-star"></i> -->
+              <!-- <i class="fas fa-star"></i> -->
+              <!-- <i class="fas fa-star"></i> -->
+              {% if rating %}
+                {% for each in rating %}
+                  <i class="fas fa-star"></i>
+                {% endfor %}
+              {% endif %}
+            </span>
+            <span>
+              <p class="px-2 review-text pt-1">{{review_count}} reviews</p>
+            </span>
+          </div>
+          <p class="jacket-description">{{ each_product.description }}</p>
+          <ul class="jacket-list">
+            <li><span><i>100% polyester</i></span></li>
+            <li><span><i>98% polyester</i></span></li>
+            <li><span><i>20% elastane</i></span></li>
+          </ul>
+          <h3 class='jkt-price'>${{ each_product.price }}</h3>
+          <p><span class="color-text">Color : </span><span class='brown-text'>Dark Brown</span></p>
+          <div class="small-jkt-img">
+            <img src="{% static './images/small-jacket.png' %}" src="">
+            <img src="{% static './images/small-black-jkt.png' %}" src="">
+          </div>
+          <!-- color change -->
+          <div>
+
+          </div>
+          <div class="btn-js my-2">
+            <p>Size : <a id="myDIV" href="#s-size"></a></p>
+            <div class="d-flex size-buttons">
+              <button onclick="change_text()">M</button>
+              <button onclick="functionl()">L</button>
+              <button onclick="functions()">S</button>
+              <button onclick="functionxl()">XL</button>
+              <button onclick="functionxxl()">XXL</button>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal5">Find my size</a>
+              <!-- my size Modal start -->
+              <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                    <h5 class="modal-close" data-bs-dismiss="modal">&#10005;</h5>
+                    <div class="text-center modal-size-image">
+                      <img src="./images/Image 26.png" alt="">
+                      <img src="./images/Image 25.png" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- my size modal end -->
+            </div>
+          </div>
+          <div class="mt-5 d-flex main-button-class">
+            <div class="plus-button">
+              <form class="d-flex text-center">
+                <input type="number" id="number" value="0" />
+                <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value"><i
+                    class="fas fa-minus"></i></div>
+                <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value"><i
+                    class="fas fa-plus"></i></div>
+              </form>
+            </div>
+            <div class="btn-div">
+              <button class="cart-button" type="button" value=""><i class="fas fa-shopping-bag text-white"></i>Add to
+                Cart</button>
+            </div>
+            <span><i onclick="document.querySelector().style.Color='red'" class="fas fa-heart"></i></span>
+            <span><i class="fas fa-share-alt"></i></span>
+          </div>
+          <div class="stock-list mt-5">
+            <p><span class="left-text">Availability : </span><span style="color:#3A977D;">In Stock</span>
+            </p>
+            <p><span class="left-text">SKU : </span><span class="text-142">14235</span></p>
+            <p><span class="left-text">Categories : </span><span class="text-142">Sweatshirts, Shirt</span>
+            </p>
+            <p style="color:#940205;">Free shipping & return for orders over $200</p>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+  <!-- Tab Section------------------ -->
+  <section>
+    <div class="pills-nav mt-3">
+      <div class="container">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#home">Description</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#menu1">Review (20)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#menu2">Additional information</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="container">
+      <div class="row  section-right">
+        <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 section-right">
+          <div class="tab-content container ">
+            <div id="home" class="tab-pane active"><br>
+              <!-- <h3>Description</h3> -->
+              <p>Mid century modern plant stand, Inspired by the 1950's... this beautiful mid century
+                style plant
+                stand is the perfect decor piece for any room. Made from locally sourced wood.The stands
+                have been
+                stress-tested at over 100LBS to ensure it can withstand the weight of even your heaviest
+                plant
+                friend.<br><br> Width - Select the width from the dropdown based on your pot size (For
+                example, if you have
+                a 12" pot, order the 12" width as we add a quarter of an inch so you have some wiggle
+                room). Please
+                note the grain & colour of the wood will vary slightly. All of our products are hand
+                made, they are
+                not mass produced. It's what makes each stand unique.<br><br> The images used on the
+                listing are a
+                representation of the item and do not feature the exact item that will ship.If you have
+                any
+                questions regarding this item, please hit the “Ask a Question” button and we will get
+                back to you
+                within 24 hours.</p>
+            </div>
+            <div id="menu1" class="tab-pane fade review-section"><br>
+              <!-- <h3>Review (20)</h3> -->
+              <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-8 col-xs-12">
+                  <div class="reviews-container">
+                    <!-- <h2>Reviews</h2> -->
+                    <div class="review">
+                      <span class="icon-container">5 Star</span>
+                      <div class="progress">
+                        <div class="progress-done" data-done="60"></div>
+                      </div>
+                      <span class="percent">60%</span>
+                    </div>
+                    <div class="review">
+                      <span class="icon-container">4 Star</span>
+                      <div class="progress">
+                        <div class="progress-done" data-done="20"></div>
+                      </div>
+                      <span class="percent">20%</span>
+                    </div>
+                    <div class="review">
+                      <span class="icon-container">3 Star</span>
+                      <div class="progress">
+                        <div class="progress-done" data-done="10"></div>
+                      </div>
+                      <span class="percent">10%</span>
+                    </div>
+                    <div class="review">
+                      <span class="icon-container">2 Star</span>
+                      <div class="progress">
+                        <div class="progress-done" data-done="5"></div>
+                      </div>
+                      <span class="percent">5%</span>
+                    </div>
+                    <div class="review">
+                      <span class="icon-container">1 Star</span>
+                      <div class="progress">
+                        <div class="progress-done" data-done="7"></div>
+                      </div>
+                      <span class="percent">7%</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-4 col-xs-12 text-center review-right">
+                  <p>20 reviews</p>
+                  <h3>4.8</h3>
+                  <span class="star-images">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </span>
+                  <!-- <form action=""> -->
+                    <div>
+                      <button data-bs-toggle="modal" data-bs-target="#exampleModalreview">Write a Review</button>
+                    </div>
+                  <!-- </form> -->
+                 
+                </div>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                  <div class="review_head d-flex">
+                    <span>1 - 5 of 20 Reviews</span>
+                    <span>
+                      <div class="dropdown dropdown-sort">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                          data-bs-toggle="dropdown" aria-expanded="false">
+                          Sort by: Default
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="#">Old</a></li>
+                          <li><a class="dropdown-item" href="#">Newest</a></li>
+                          <li><a class="dropdown-item" href="#">Default</a></li>
+                        </ul>
+                      </div>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 mt-4">
+                  
+                    <div class="main--class d-flex">
+                      <div class="sub-review-class1">
+                        <img src="./images/3135715.png" alt="">
+                      </div>
+                      <div class="sub-review-class2">
+                        <h4>Sam Lane <span class="jan19">at 19 Jan 2018</span></h4>
+                        <span class="d-flex">
+                          <span class="star-images">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                          </span>
+                          <h5>Slim Fit, Too Long in Back</h5>
+                        </span>
+                        <p>This shirt has a looser fit to it (at least on me), though the fabric is sheer so basically
+                          kind of transparent. The texture of the fabric is very light (there's no thickness to it),
+                          though I've been finding the linen fabric to be of lesser quality than regular cotton.</p>
+                          <div class="bottom-btns-slider">
+                            <img src="./images/bottom-jkt.png" alt="">
+                            <img src="./images/bottom-jkt.png" alt="">
+                            <img src="./images/bottom-jkt.png" alt="">
+                          </div>
+                      </div>
+                    </div>
+                 
+                </div>
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 mt-4">
+                  
+                  <div class="main-review-class d-flex">
+                    <div class="sub-review-class1">
+                      <img src="./images/3135715.png" alt="">
+                    </div>
+                    <div class="sub--class2">
+                      <h4>Sam Lane <span class="jan19">at 19 Jan 2018</span></h4>
+                      <span class="d-flex">
+                        <span class="star-images">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                        <h5>Slim Fit, Too Long in Back</h5>
+                      </span>
+                      <p>This shirt has a looser fit to it (at least on me), though the fabric is sheer so basically
+                        kind of transparent. The texture of the fabric is very light (there's no thickness to it),
+                        though I've been finding the linen fabric to be of lesser quality than regular cotton.</p>
+                        <div class="bottom-btns-slider">
+                          <img src="./images/bottom-jkt.png" alt="">
+                          <img src="./images/bottom-jkt.png" alt="">
+                          <img src="./images/bottom-jkt.png" alt="">
+                        </div>
+                    </div>
+                  </div>
+
+              </div>
+              <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 mt-4">
+
+                <div class="main-review-class d-flex">
+                  <div class="sub-review-class1">
+                    <img src="./images/3135715.png" alt="">
+                  </div>
+                  <div class="sub-review-class2">
+                    <h4>Sam Lane <span class="jan19">at 19 Jan 2018</span></h4>
+                    <span class="d-flex">
+                      <span class="star-images">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                      </span>
+                      <h5>Slim Fit, Too Long in Back</h5>
+                    </span>
+                    <p>This shirt has a looser fit to it (at least on me), though the fabric is sheer so basically
+                      kind of transparent. The texture of the fabric is very light (there's no thickness to it),
+                      though I've been finding the linen fabric to be of lesser quality than regular cotton.</p>
+                      <div class="bottom-btns-slider">
+                        <img src="./images/bottom-jkt.png" alt="">
+                        <img src="./images/bottom-jkt.png" alt="">
+                        <img src="./images/bottom-jkt.png" alt="">
+                      </div>
+                  </div>
+                </div>
+             
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 mt-4">
+                  
+              <div class="main-review-class d-flex">
+                <div class="sub-review-class1">
+                  <img src="./images/3135715.png" alt="">
+                </div>
+                <div class="sub-review-class2">
+                  <h4>Sam Lane <span class="jan19">at 19 Jan 2018</span></h4>
+                  <span class="d-flex">
+                    <span class="star-images">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </span>
+                    <h5>Slim Fit, Too Long in Back</h5>
+                  </span>
+                  <p>This shirt has a looser fit to it (at least on me), though the fabric is sheer so basically
+                    kind of transparent. The texture of the fabric is very light (there's no thickness to it),
+                    though I've been finding the linen fabric to be of lesser quality than regular cotton.</p>
+                    <div class="bottom-btns-slider">
+                      <img src="./images/bottom-jkt.png" alt="">
+                      <img src="./images/bottom-jkt.png" alt="">
+                      <img src="./images/bottom-jkt.png" alt="">
+                    </div>
+                </div>
+              </div>
+           
+          </div>
+          <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 mt-4">
+                  
+            <div class="main-review-class d-flex">
+              <div class="sub-review-class1">
+                <img src="./images/3135715.png" alt="">
+              </div>
+              <div class="sub--class2">
+                <h4>Sam Lane <span class="jan19">at 19 Jan 2018</span></h4>
+                <span class="d-flex">
+                  <span class="star-images">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </span>
+                  <h5>Slim Fit, Too Long in Back</h5>
+                </span>
+                <p>This shirt has a looser fit to it (at least on me), though the fabric is sheer so basically
+                  kind of transparent. The texture of the fabric is very light (there's no thickness to it),
+                  though I've been finding the linen fabric to be of lesser quality than regular cotton.</p>
+                  <div class="bottom-btns-slider">
+                    <img src="./images/bottom-jkt.png" alt="">
+                    <img src="./images/bottom-jkt.png" alt="">
+                    <img src="./images/bottom-jkt.png" alt="">
+                  </div>
+              </div>
+            </div>
+         
+        </div>
+              
+                
+
+              </div>
+            </div>
+            <div id="menu2" class="container tab-pane fade"><br>
+              <!-- <h3>Additional Information</h3> -->
+              <p>Mid century modern plant stand, Inspired by the 1950's... this beautiful mid century
+                style plant
+                stand is the perfect decor piece for any room. Made from locally sourced wood.The stands
+                have been
+                stress-tested at over 100LBS to ensure it can withstand the weight of even your heaviest
+                plant
+                friend.<br><br> Width - Select the width from the dropdown based on your pot size (For
+                example, if you have
+                a 12" pot, order the 12" width as we add a quarter of an inch so you have some wiggle
+                room). Please
+                note the grain & colour of the wood will vary slightly. All of our products are hand
+                made, they are
+                not mass produced. It's what makes each stand unique.<br><br> The images used on the
+                listing are a
+                representation of the item and do not feature the exact item that will ship.If you have
+                any
+                questions regarding this item, please hit the “Ask a Question” button and we will get
+                back to you
+                within 24 hours.</p>
+            </div>
+          </div>
+          <div class="container">
+            <div class="best-seller mt-4">
+              <span class="best-span">Best Seller</span>
+              <span class="best-seller-btn" style="float:right;">
+                <button><i class="fas fa-angle-left"></i></button>
+                <button><i class="fas fa-angle-right"></i></button>
+              </span>
+              <div class="best-seller-cards">
+                <!-- t shirts -->
+                <div class="row mt-5 ">
+
+                  <div class="col-md-4 col-sm-6 col-lg-4 col-xs-12 mt-3 cus-card-best-seller ">
+                    <div class="card card-border">
+                      <div class="wishlist-card-icon">
+                        <img src="./images/Icon-heart-2.png" alt="">
+                      </div>
+                      <img class="card-img-top bg-image" src="./images/8.png" alt="Card image cap">
+                      <div>
+                        <span class="top-card-text">3 Color Options</span>
+                        <span class="star-images" style="float:right;">
+                          <i class="fas fa-star"></i>
+                          <!-- <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i> -->
+                        </span>
+                      </div>
+                      <hr>
+                      <div>
+                        <p class="card-text img-text">Men Check Boxers</p>
+                      </div>
+                      <div>
+                        <p><span>$723</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- <div class="col-md-4 col-sm-6 col-lg-4 col-xs-12 mt-3 cus-card-best-seller">
+                    <div class="card card-border">
+                      <div class="wishlist-card-icon">
+                        <img src="./images/Icon-heart-2.png" alt="">
+                      </div>
+                      <img class="card-img-top bg-image" src="./images/9.png" alt="Card image cap">
+                      <div>
+                        <span class="top-card-text">2 Color Options</span>
+                        <span class="star-images" style="float:right;">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                      <hr>
+                      <div>
+                        <p class="card-text img-text">Simple Plazo & Kurti</p>
+                      </div>
+                      <div>
+                        <p><span>$500</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 col-lg-4 col-xs-12  mt-3 cus-card-best-seller">
+                    <div class="card card-border">
+                      <div class="wishlist-card-icon">
+                        <img src="./images/Icon-heart-2.png" alt="">
+                      </div>
+                      <img class="card-img-top bg-image" src="./images/10.png" alt="Card image cap">
+                      <div>
+                        <span class="top-card-text">4 Color Options</span>
+                        <span class="star-images" style="float:right;">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                      <hr>
+                    </div>
+                    <div>
+                      <p class="card-text img-text">Unisex Capree</p>
+                    </div>
+                    <div>
+                      <p><span>$630</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                    </div>
+                  </div>
+                </div> -->
+                <!-- tshirt end -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-4 col-sm-0 col-xs-0  right-best suggestion-card ">
+          <h4>Match With</h4>
+          <div class="row">
+            <div class="col-md-4 right-best-img">
+              <img src="./images/Image 22.png" alt="">
+            </div>
+            <div class="col-md-6">
+              <p class="best-1">Men Bomber Puffer Jacket</p>
+              <p class="dollar">$400</p>
+              <p class="review-text">2 option color</p>
+              <span class="star-images">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-4 right-best-img">
+              <img src="./images/Image 22.png" alt="">
+            </div>
+            <div class="col-md-6">
+              <p class="best-1">Men Bomber Puffer Jacket</p>
+              <p class="dollar">$400</p>
+              <p class="review-text">2 option color</p>
+              <span class="star-images">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-4 right-best-img">
+              <img src="./images/Image 22.png" alt="">
+            </div>
+            <div class="col-md-6">
+              <p class="best-1">Men Bomber Puffer Jacket</p>
+              <p class="dollar">$400</p>
+              <p class="review-text">2 option color</p>
+              <span class="star-images">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-4 right-best-img">
+              <img src="./images/Image 22.png" alt="">
+            </div>
+            <div class="col-md-6">
+              <p class="best-1">Men Bomber Puffer Jacket</p>
+              <p class="dollar">$400</p>
+              <p class="review-text">2 option color</p>
+              <span class="star-images">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-4 right-best-img">
+              <img src="./images/Image 22.png" alt="">
+            </div>
+            <div class="col-md-6">
+              <p class="best-1">Men Bomber Puffer Jacket</p>
+              <p class="dollar">$400</p>
+              <p class="review-text">2 option color</p>
+              <span class="star-images">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="mt-3">
+  <!-- similar product section----------------------- -->
+  <section>
+    <div class="container">
+      <h1 class="mt-5 mb-4 text-center similar-head">Similar Products</h1>
+      <!-- recommendation another section -->
+
+      <div class="row mt-5 clothe-card-media similar-media">
+        <!-- <div class="col-md-10 latest-coll">
+            </div> -->
+        <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+          <div class="card card-border" style="width: 18rem;">
+            <div class="wishlist-card-icon">
+              <img src="./images/Icon-heart-2.png" alt="">
+            </div>
+            <img class="card-img-top bg-image" src="./images/1.png" alt="Card image cap">
+            <div>
+              <div>
+                <span class="top-card-text">3 Color Options</span>
+                <span class="star-images" style="float:right;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <hr>
+            </div>
+            <div>
+              <p class="card-text img-text">Rossetto Men Round Neck T-shirt</p>
+            </div>
+            <div>
+              <p><span>$723</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+          <div class="card card-border" style="width: 18rem;">
+            <div class="wishlist-card-icon">
+              <img src="./images/Icon-heart-2.png" alt="">
+            </div>
+            <img class="card-img-top bg-image" src="./images/2.png" alt="Card image cap">
+            <div>
+              <div>
+                <span class="top-card-text">2 Color Options</span>
+                <span class="star-images" style="float:right;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <hr>
+            </div>
+            <div>
+              <p class="card-text img-text">Wrangler Stretchable Jeans</p>
+            </div>
+            <div>
+              <p><span>$832</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
+              </p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+          <div class="card card-border" style="width: 18rem;">
+            <div class="left-float-icon">
+              <p>hot</p>
+            </div>
+            <div class="wishlist-card-icon">
+              <img src="./images/Icon-heart-2.png" alt="">
+            </div>
+            <img class="card-img-top bg-image" src="./images/3.png" alt="Card image cap">
+            <div>
+              <div>
+                <span class="top-card-text">5 Color Options</span>
+                <span class="star-images" style="float:right;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <hr>
+            </div>
+            <div>
+              <p class="card-text img-text">Raymond Formals Men Shirt</p>
+            </div>
+            <div>
+              <p><span>$107</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
+              </p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+          <div class="card card-border" style="width: 18rem;">
+            <div class="wishlist-card-icon">
+              <img src="./images/Icon-heart-2.png" alt="">
+            </div>
+            <img class="card-img-top bg-image" src="./images/4.png" alt="Card image cap">
+            <div>
+              <div>
+                <span class="top-card-text">3 Color Options</span>
+                <span class="star-images" style="float:right;">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </div>
+              <hr>
+            </div>
+            <div>
+              <p class="card-text img-text">Puma Men Track Pants</p>
+            </div>
+            <div>
+              <p><span>$118</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- slider start -->
+  <!-- slider -->
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+{% if forloop.counter < 5 %}
+                  <div class="card card-border">
+                      <div class="wishlist-card-icon">
+                        {% if  %}
+                      </div>
+                      <a href="{% url 'frontend:each_products' each.id %}"> <img class="card-img-top bg-image" src="{{ each.image.url }}" alt="Card image cap"></a>
+                      <div>
+                        <span class="top-card-text">3 Color Options</span>
+                        <span class="star-images" style="float:right;">
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                          <i class="fas fa-star"></i>
+                        </span>
+                      </div>
+                      <hr>
+                      <div>
+                        <a  class="card-text img-text" href="{% url 'frontend:each_products' each.id %}">{{ each.name }}</a>
+                      </div>
+                      <div>
+                        <p><span>${{ each.discount_price}}</span>
+                          <i class="fas fa-shopping-bag"></i></p>
+                      </div>
+                  </div>
+                {% endif %}

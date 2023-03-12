@@ -1,0 +1,52 @@
+{% autoescape off %}
+{% load i18n static %}
+{% endautoescape %}
+{% block html %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body style="font-family:'Helvetica Neue', Roboto, sans-serif; color: #666666; background:white; text-decoration: none;">
+  <table cellspacing="0" cellpadding="0" bgcolor="#f4f4f4" width="100%" border="0">
+    <tbody>
+      <tr align="center">
+        <td style="width: 100%;" valign="top">
+          <table style="padding: 0px; border: 0; width: 600px; text-align: center;" cellspacing="0" cellpadding="10px" bgcolor="#fff" width="100%" border="0">
+           <tbody>
+            <tr align="center">
+             <td style="width: 100%; margin: 10px 10px; line-height: 24px; font-size: 14pt; font-weight: bold; color: #333333;">
+              <p style="margin: 10px; padding: 0;">Verify your email address</p>
+            </td>
+           </tr>
+           <tr style="margin: 0px 10px;" align="center">
+             <td style="width: 100%; line-height: 24px; font-size: 14px;">
+               <p style="margin-top:0px;">We just need to verify your email address to complete your signup</p>
+             </td>
+            </tr>
+            <tr style="margin: 0px 10px;" align="center">
+             <td style="width: 100%; line-height: 24px; font-size: 14px;">
+               <p style="margin-top:0px;">Your email verification code is '{{ user.verification_code }}'</p>
+             </td>
+            </tr>
+           {% if not resendemail %}
+            <tr align="center">
+             <td style="width: 100%; margin: 0px 10px; line-height: 24px; font-size: 11pt;">
+              <a style="padding: 10px 20px; border: 1px solid #F50000; -webkit-border-radius: 999em; -moz-border-radius: 999em; border-radius: 999em; line-height: 24px; font-size: 11pt; background-color: #F50000; color: white; text-decoration: none;" href="http://{{ domain }}{{url}}{{uid}}/{{token}}">Verify your email</a>
+            </td>
+           </tr>
+           {% endif %}
+           <tr>
+            <td style="height: 25px; width: 100%;">&nbsp;</td>
+          </tr>
+         </tbody>
+        </table>
+         <br>
+           </td>
+          </tr>
+       </tbody>
+      </table>
+     </body>
+   </html>
+   {% endblock %}

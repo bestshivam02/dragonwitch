@@ -1,0 +1,185 @@
+.carousel-item img { height: 550px; object-fit: cover;}
+.top_head_row { display: flex; justify-content: flex-end; }
+.top_nav .number>p>img.call-img { width: auto; height: initial; width: 13px; margin-right: 4px!important; margin-left: 16px!important; }
+.number a { color: #fff; }
+.number { margin-right: 14px; }
+.top_nav{    padding: 4px 0;}
+.header_nav { margin-bottom: 0; }
+.about_us_link { margin-right: auto!important; }
+.wish-cus .fa-heart:before{font-size: 21px;}
+.wish-cus span, .bag-cus .two-2 {
+    font-size: 10px;
+}
+.bag-cus i {
+    font-size: 21px;
+}
+.wish-cus{
+    margin-right: 11px;
+}
+.bag-cus .two-2 { top: -6px; }
+#navbar-search-main { margin-top: 4px; } 
+#navbar-search-main i.fa.fa-search { font-size: 16px; }
+#carouselExampleCaptions .carousel-control-next, 
+#carouselExampleCaptions .carousel-control-prev {
+    opacity: 1;
+}
+#carouselExampleCaptions .carousel-control-prev-icon,
+#carouselExampleCaptions .carousel-control-next-icon { background-image: none; background-color: #fff; opacity: 1; display: grid; place-items: center; } 
+#carouselExampleCaptions .carousel-control-prev-icon:before { content: "\f053"; font-weight: 900; font-family: "Font Awesome 5 Free"; color: #000; }
+#carouselExampleCaptions .carousel-control-next-icon:before { content: "\f054"; font-weight: 900; font-family: "Font Awesome 5 Free"; color: #000; }
+.carousel-control-next, .carousel-control-prev { width: 9%; }
+.width-card .card.main-card, .width-card .card.main-card .card-img-top { height: 100%; object-fit: cover; }
+.main-card .card-body { padding: 12px 19px; top: auto; bottom: 0; left: 0; border-left: 1px solid #cfcfcf; border-bottom: 1px solid #cfcfcf; }
+section#collection-1, section#recommend { margin-top: 35px; position: relative;}
+.slider_arrows>div {
+    width: 15px;
+    height: 15px;
+    background: red;
+    cursor: pointer;
+    border: 1px solid;
+}
+#collection-1 .slick-arrow, #recommend .slick-arrow {
+    background-color: transparent;
+    position: absolute!important;
+    top: -32px!important;
+    left: auto!important;
+}
+#collection-1 .slick-arrow:before, #recommend .slick-arrow:before{
+    content: "\f053";
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+    color: #000;
+    font-size: 18px;
+}
+#collection-1 .slick-arrow.slick-next:before,
+#recommend .slick-arrow.slick-next:before{content: "\f054";}
+.product-slider__fav .heart:not(.is-active) {
+    filter: brightness(0);
+}
+.r-image>img { max-width: 100%; min-width: 56%; display: block; margin: auto; position: relative; z-index: 5; margin-right: 154px; margin-top: 24px; }
+#timer>div {
+    min-height: 81px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin: 0 10px;
+    min-width: 81px;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 26px;
+    color: #940205;
+}
+.gg_sec {
+    padding-right: 72px;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.gg_sec p {
+    margin: 0!important;
+    margin-right: 18px!important;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.gg_sec span {
+    margin: 0!important;
+    margin-right: 18px!important;
+    font-weight: 600;
+    font-size: 18px;
+    color: #b1b1b1;
+}
+.section_banner .banner-image { height: auto; width: 100%; }
+.section_banner { margin-top: 18px; }
+
+.men_wear_sec .col-md-12 .row {
+    height: 100%;
+}
+
+.men_wear_sec .card.card-border {
+    height: 100%;
+}
+
+.men_wear_sec .card-img-top {
+    height: 100%;
+    object-fit: cover;
+}
+.men_wear_sec .wear-clothes, .men_wear_sec .wear { top: auto; bottom: 0; }
+.ct-footer-pre { margin: auto;   display: flex; align-items: center; }
+.ct-footer .container-flude { max-width: 1580px; margin-left: auto!important; margin-right: auto!important; padding-left: 1.6rem; padding-right: 1.6rem;}
+
+#timer {
+    display: flex;
+    text-align: center;
+}
+
+#timer>div>span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #a5a5a5;
+}
+.counter-content h2 {
+    width: 404px;
+    margin: auto;
+    padding: 15px;
+    font-weight: 900;
+}
+.ct-footer-pre .inner.foot-logo { margin-right: auto; }
+.ct-footer-pre .form-group { margin-right: calc(0px - var(--bs-gutter-x) / 2); }
+.ct-footer-pre span { font-size: 15px!important; }
+.ct-footer-pre span a { color: #fff; }
+.ct-footer-pre .form-group .col-md-6 { width: initial; display: flex; align-items: center; }
+span.cus-text-footer { font-size: 13px!important; white-space: nowrap; }
+.ct-footer-pre > .inner:first-child { margin-right: 30px; }
+.caption-text-2{max-width: 480px; margin-bottom: 37px!important;}
+.carousel-caption-1 button { padding: 11px 20px; font-size: 18px; }
+button.btn-motive { padding: 0 20px; }
+.ct-footer-list span, .ct-footer-list a { line-height: 1.8; }
+.ct-footer-list { text-align: left!important; }
+.ct-footer-list > li:first-child { width: 13.5%; }
+.payment-getway { margin-top: 21px; }
+.ct-footer{overflow: hidden;}
+.nav-links li.navbar-dropdown>a:after { content: "\f107"; font-weight: 900; font-family: "Font Awesome 5 Free"; color: #000; font-size: 14px; margin-bottom: -3px; margin-left: 6px; }
+.nav-links li.navbar-dropdown>a { display: flex; align-items: center; }
+.miniColors-colors{   background-position: -120px 0!important;}
+select#tshirttype { width: 100%; }
+#typography .tabbable .tab-content { overflow: initial; }
+#avatarlist .img-polaroid { width: 50%; }
+#avatarlist { display: flex; flex-wrap: wrap; }
+.input-append.text_input input#text-string { width: 100%; flex: 1; height: auto; }
+.input-append.text_input { display: flex; }
+.file_select_box { position: relative; margin-top: 20px;}
+.file_select_box input#fileToUpload { opacity: 0; cursor: pointer; margin-left: -69px; }
+.file_select_box input.btn.btn-primary { margin: 0; top: 0; left: 0; position: absolute; border: none; width: 100%; font-size: 15px; height: 100%; pointer-events: none;}
+/* #typography .col-md-4.span6 { width: auto; flex: 1; } */
+/* img#tshirtFacing { display: block; margin: auto; } */
+.tabbable .nav-tabs{margin-bottom: 0;}
+/* div#drawingArea { right: auto; left: 50%; transform: translateX(-50%); } */
+section#typography .col-md-4.span6>div:first-child { --side_offset: 50px; width: calc(100% + var(--side_offset)); margin-right: calc(0px - var(--side_offset)); }
+div#shirtDiv { width: fit-content; }
+.tsir .img-top.pdd { background-color: #EEEEEE; object-fit: scale-down; }
+.tsir { width: 100%; text-align: center; background-color: transparent; }
+#filter_product_form~ul #carouselExampleCaptions .carousel-item { height: auto; }
+#filter_product_form~ul #carouselExampleCaptions .carousel-item img { height: auto; }
+#filter_product_form #accordion>li { border: 1px solid #cdcdcd; margin-bottom: 16px!important; padding: 0 18px; border-radius: 8px;}
+#filter_product_form #accordion>li.open .link { border-color: #cdcdcd; }
+#filter_product_form #accordion>li .link { border-color: transparent; }
+#filter_product_form #accordion>li .submenu { padding: 15px 0; }
+#filter_product_form #accordion>li .submenu>li { display: flex; align-items: center; }
+#filter_product_form #accordion>li .submenu>li label { font-size: 14px; font-weight: 500; display: flex; align-items: center; cursor: pointer; }
+#filter_product_form #accordion>li .submenu>li label>input { margin-right: 15px; }
+img.card-img-top.bg-image{    min-height: 250px;
+    width: 100%;
+    min-width: 100%;}
+.right_option>span { display: flex; }
+.right_option i { margin-left: 14px; }
+.right_option { display: flex; align-items: center; margin-bottom: 15px!important; }
+.col-md-4.col-sm-6.col-lg-4.col-xs-12.mt-3.cus-card-87{height: auto;}
+img.card-img-top.bg-image { object-fit: contain; }
+.login_actions #dropdownMenuButton36 { padding: 0; display: flex; align-items: center; margin-top: -2px;}
+.login_actions .dropdown-menu { right: 0!important; left: auto!important; padding: 1rem; }
+.login_actions #dropdownMenuButton36 a { pointer-events: none; }
+.login_actions #dropdownMenuButton36:focus, .login_actions #dropdownMenuButton36:focus * { outline: none; box-shadow: none; }
+.bag-cus>a { margin: 0!important; }

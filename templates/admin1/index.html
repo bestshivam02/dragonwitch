@@ -1,0 +1,484 @@
+{% extends 'admin/base.html' %}
+    {% load static %}
+        {% block content %}
+        {% load extras %}
+
+                <div class="project-info">
+
+                    <div class="block1">
+                        <div class="data">
+                            <span class='title'>Orders</span>
+                            <span class='total'>545</span>
+                        </div>
+                        <div class="graph">
+                            <span class="sidebar_orders">...</span>
+                        </div>
+                    </div>
+
+                    <div class="block2">
+                        <div class="data">
+                            <span class='title'>Customers</span>
+                            <span class='total'>3146</span>
+                        </div>
+                        <div class="graph">
+                            <span class="sidebar_visitors">...</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <!--  SIDEBAR - END -->
+            <!-- START CONTENT -->
+            <section id="main-content" class=" ">
+                <section class="wrapper main-wrapper" style=''>
+
+                    <div class='col-xl-12 col-lg-12 col-md-12 col-12'>
+                        <div class="page-title">
+
+                            <div class="float-left">
+                                <h1 class="title">Ecommerce</h1>                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <section class="box nobox">
+                            <div class="content-body">
+
+
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-12">
+
+                                        <div class="r1_graph1 db_box db_box_large">
+                                            <span class='bold'>68.95%</span>
+                                            <span class='float-right'><small>New/Repeating Users</small></span>
+                                            <div class="clearfix"></div>
+                                            <span class="db_dynamicbar">Loading...</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-12">
+
+                                        <div class="r1_graph2 db_box db_box_large">
+                                            <span class='bold'>2332</span>
+                                            <span class='float-right'><small>Links Shared</small></span>
+                                            <div class="clearfix"></div>
+                                            <span class="db_linesparkline">Loading...</span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-lg-4 hidden-sm col-md-12 col-12">
+
+                                        <div class="r1_graph1 db_box db_box_large">
+                                            <span class='bold'>67/98</span>
+                                            <span class='float-right'><small>Total / Unique visitors</small></span>
+                                            <div class="clearfix"></div>
+                                            <span class="db_compositebar">Loading...</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- End .row -->
+
+                                <div class="row">
+
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        <div class="r1_maingraph db_box">
+                                            <span class='float-left'>
+                                                <i class='icon-purple fa fa-square icon-xs'></i>&nbsp;<small>Page Views</small>
+                                                &nbsp; &nbsp;<i class='fa fa-square icon-xs icon-primary'></i>&nbsp;
+                                                <small>Unique Visitors</small>
+                                            </span>
+                                            <div id="db_morris_bar_graph" style="height:auto;width:100%;"></div>
+                                        </div>
+                                    </div>
+
+
+                                </div> <!-- End .row -->
+
+                            </div>
+                        </section></div>
+                    <div class="row margin-0">
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <section class="box ">
+                                        <header class="panel_header">
+                                            <h2 class="title float-left">New Users</h2>
+                                            <div class="actions panel_actions float-right">
+                                                <i class="box_toggle fa fa-chevron-down"></i>
+                                                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                                                <i class="box_close fa fa-times"></i>
+                                            </div>
+                                        </header>
+                                        <div class="content-body">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width:60%">Email</th>
+                                                        <th style="width:30%">Progress</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for i in 1|all_userlist %}
+                                                    <tr>
+
+                                                        <td>{{i.email}}</td>
+                                                        <td><span class="playlist_song2">...</span></td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                    <!-- <tr>
+
+                                                        <td>Will Mark</td>
+                                                        <td><span class="playlist_song3">...</span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Jason D.</td>
+                                                        <td><span class="playlist_song4">...</span></td>
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td>Nik P.</td>
+                                                        <td><span class="playlist_song6">...</span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Kate Wilson</td>
+                                                        <td><span class="playlist_song7">...</span></td>
+                                                    </tr> -->
+                                                </tbody>
+                                            </table>
+
+
+                                        </div>
+                                    </section>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-lg-4 col-md-12 col-12">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <section class="box ">
+                                        <header class="panel_header">
+                                            <h2 class="title float-left">New Vendors</h2>
+                                            <div class="actions panel_actions float-right">
+                                                <i class="box_toggle fa fa-chevron-down"></i>
+                                                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                                                <i class="box_close fa fa-times"></i>
+                                            </div>
+                                        </header>
+                                        <div class="content-body">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width:60%">Name</th>
+                                                        <th style="width:30%">Progress</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+
+                                                        <td>John Doug</td>
+                                                        <td><span class="playlist_song1">...</span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Harry P.</td>
+                                                        <td><span class="playlist_song2">...</span></td>
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td>Clarke M.</td>
+                                                        <td><span class="playlist_song5">...</span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Nik P.</td>
+                                                        <td><span class="playlist_song6">...</span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Kate Wilson</td>
+                                                        <td><span class="playlist_song7">...</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+
+                                        </div>
+                                    </section>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-12 col-12">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <section class="box ">
+                                        <header class="panel_header">
+                                            <h2 class="title float-left">New Customers</h2>
+                                            <div class="actions panel_actions float-right">
+                                                <i class="box_toggle fa fa-chevron-down"></i>
+                                                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                                                <i class="box_close fa fa-times"></i>
+                                            </div>
+                                        </header>
+                                        <div class="content-body">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width:60%">Name</th>
+                                                        <th style="width:30%">Progress</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <tr>
+
+                                                        <td>Harry P.</td>
+                                                        <td><span class="playlist_song2">...</span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Will Mark</td>
+                                                        <td><span class="playlist_song3">...</span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Jason D.</td>
+                                                        <td><span class="playlist_song4">...</span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Clarke M.</td>
+                                                        <td><span class="playlist_song5">...</span></td>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td>Nik P.</td>
+                                                        <td><span class="playlist_song6">...</span></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+
+
+                                        </div>
+                                    </section>
+
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+
+                </section>
+            </section>
+            <!-- END CONTENT -->
+            <div class="page-chatapi hideit">
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search" class="form-control">
+                </div>
+
+                <div class="chat-wrapper">
+                    <h4 class="group-head">Groups</h4>
+                    <ul class="group-list list-unstyled">
+                        <li class="group-row">
+                            <div class="group-status available">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                            <div class="group-info">
+                                <h4><a href="#">Work</a></h4>
+                            </div>
+                        </li>
+                        <li class="group-row">
+                            <div class="group-status away">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                            <div class="group-info">
+                                <h4><a href="#">Friends</a></h4>
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                    <h4 class="group-head">Favourites</h4>
+                    <ul class="contact-list">
+
+                        <li class="user-row" id='chat_user_1' data-user-id='1'>
+                            <div class="user-img">
+                                <a href="#"><img src="{% static 'admin/data/profile/avatar-1.png' %}" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Clarine Vassar</a></h4>
+                                <span class="status available" data-status="available"> Available</span>
+                            </div>
+                            <div class="user-status available">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_2' data-user-id='2'>
+                            <div class="user-img">
+                                <a href="#"><img src="{% static 'admin/data/profile/avatar-2.png' %}" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Brooks Latshaw</a></h4>
+                                <span class="status away" data-status="away"> Away</span>
+                            </div>
+                            <div class="user-status away">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_3' data-user-id='3'>
+                            <div class="user-img">
+                                <a href="#"><img src="{% static 'admin/data/profile/avatar-3.png' %}" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Clementina Brodeur</a></h4>
+                                <span class="status busy" data-status="busy"> Busy</span>
+                            </div>
+                            <div class="user-status busy">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                    <h4 class="group-head">More Contacts</h4>
+                    <ul class="contact-list">
+
+                        <li class="user-row" id='chat_user_4' data-user-id='4'>
+                            <div class="user-img">
+                                <a href="#"><img src="{% static 'admin/data/profile/avatar-4.png' %}" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Carri Busey</a></h4>
+                                <span class="status offline" data-status="offline"> Offline</span>
+                            </div>
+                            <div class="user-status offline">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_5' data-user-id='5'>
+                            <div class="user-img">
+                                <a href="#"><img src="{% static 'admin/data/profile/avatar-5.png' %}" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Melissa Dock</a></h4>
+                                <span class="status offline" data-status="offline"> Offline</span>
+                            </div>
+                            <div class="user-status offline">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_6' data-user-id='6'>
+                            <div class="user-img">
+                                <a href="#"><img src="{% static 'admin/data/profile/avatar-1.png' %}" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Verdell Rea</a></h4>
+                                <span class="status available" data-status="available"> Available</span>
+                            </div>
+                            <div class="user-status available">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_7' data-user-id='7'>
+                            <div class="user-img">
+                                <a href="#"><img src="{% static 'admin/data/profile/avatar-2.png' %}" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Linette Lheureux</a></h4>
+                                <span class="status busy" data-status="busy"> Busy</span>
+                            </div>
+                            <div class="user-status busy">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_8' data-user-id='8'>
+                            <div class="user-img">
+                                <a href="#"><img src="{% static 'admin/data/profile/avatar-3.png' %}" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Araceli Boatright</a></h4>
+                                <span class="status away" data-status="away"> Away</span>
+                            </div>
+                            <div class="user-status away">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_9' data-user-id='9'>
+                            <div class="user-img">
+                                <a href="#"><img src="{% static 'admin/data/profile/avatar-4.png' %}" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Clay Peskin</a></h4>
+                                <span class="status busy" data-status="busy"> Busy</span>
+                            </div>
+                            <div class="user-status busy">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_10' data-user-id='10'>
+                            <div class="user-img">
+                                <a href="#"><img src="{% static 'admin/data/profile/avatar-5.png' %}" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Loni Tindall</a></h4>
+                                <span class="status away" data-status="away"> Away</span>
+                            </div>
+                            <div class="user-status away">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_11' data-user-id='11'>
+                            <div class="user-img">
+                                <a href="#"><img src="{% static 'admin/data/profile/avatar-1.png' %}" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Tanisha Kimbro</a></h4>
+                                <span class="status idle" data-status="idle"> Idle</span>
+                            </div>
+                            <div class="user-status idle">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_12' data-user-id='12'>
+                            <div class="user-img">
+                                <a href="#"><img src="{% static 'admin/data/profile/avatar-2.png' %}" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Jovita Tisdale</a></h4>
+                                <span class="status idle" data-status="idle"> Idle</span>
+                            </div>
+                            <div class="user-status idle">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="chatapi-windows ">
+
+
+            </div>    </div>
+        <!-- END CONTAINER -->
+    {% endblock content %}

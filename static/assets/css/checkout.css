@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+.billing-left input,.billing-left select,.billing-left textarea
+{   
+    border-radius: 3px;
+	border: 1px solid #EEEEEE;
+	background-color: #F6F6F6;
+	color: #999999;
+	width: 100%;
+	padding: 10px;
+	font-size: 13px;
+    font-family: 'Poppins','Regular';
+	margin: 7px 0 25px 0;
+}
+input#lname {
+    margin-left: 10px;
+    width: 98%;
+}
+.topborder{
+    font-size: 26px;
+    font-family: 'Poppins','SemiBold';
+    color:#000000;
+    font-weight: 600;
+}
+.billing-left label,.billing-right form label{
+    font-size: 15px;
+    width:100%;
+    font-family: 'Poppins','Medium';
+    color:#000000;
+}
+.billing-right input[type="text"]{
+    border-radius: 3px;
+	border: 1px solid #EEEEEE;
+	background-color: #F6F6F6;
+	color: #999999;
+	width: 75%;
+	padding: 10px;
+	font-size: 13px;
+    font-family: 'Poppins','Regular';
+	margin: 7px 0 11px 0;
+}
+.billing-right button{
+    background-color: #940205;
+    border-radius: 3px;
+    border:none;
+    color:#FFFFFF;
+    padding:10px;
+    font-family: 'Poppins','Medium';
+    font-size: 13px;
+}
+.billing-order h4{
+    font-size: 24px;
+    color:#000000;
+    font-family: 'Poppins','SemiBold';
+}
+.billing-order{
+    background-color: #F6F6F6;
+    border-radius: 5px;
+}
+.prdt-text {
+    align-self: center;
+    font-size:15px;
+    font-family: 'Poppins','Medium';
+    color:#000000;
+}
+.billing-product{
+    background-color: #FFFFFF;
+}
+.billing-product.d-flex {
+    justify-content: space-between;
+    /* margin:16px; */
+}
+.prdt-price {
+    align-self: center;
+    font-size: 15px;
+    font-family: 'Poppins','SemoBold';
+    font-weight: 600;
+}
+.prdt-icon {
+    align-self: center;
+    margin-right:10px;
+}
+.prdt-img {
+    margin:10px;
+    padding: 10px;
+    background-color: #F6F6F6;
+}
+.billing-total{
+    line-height: 2.5;
+    /* margin:16px; */
+}
+.bank-transfer{
+    margin-left:3px;
+    background-color: #FFFFFF;
+    padding: 10px;
+    font-size: 15px;
+    font-family: 'Poppins','Medium';
+}
+.bank-transfer label{
+    padding-left:10px;
+}
+.billing-right-text{
+    border:1px solid #EEEEEE;
+    border-radius: 5px;
+}
+.billing-right-text p{
+    /* margin:16px; */
+    font-size: 13px;
+    padding: 10px;
+    color:#666666;
+    font-family: 'Poppins','Regular ';
+}
+.cheque-payment{
+    background-color: #FFFFFF;
+}
+.cheque-payment label{
+    padding-left:10px;
+    font-size: 15px;
+    font-family: 'Poppins','Medium';
+    color:#000000;
+}
+.cheque-payment span{
+    padding-left:7px;
+}
+.bottom-billing{
+    border-bottom:1px solid #000000;
+}
+.order-btn{
+    font-size: 16px;
+    font-family: 'Poppins','Medium';
+    padding: 13px;
+    transition: 0.3s all ease-out;
+}
+.order-btn:hover{
+    background-color: #F7AA1C;
+}
+@media screen and (max-width:991px){
+    .prdt-text{
+        font-size:12px;
+    }
+    .prdt-price{
+        font-size: 12px;
+        align-self: flex-end;
+        margin-right: 10px;
+    }
+    .billing-product{
+        position: relative;
+    }
+    .prdt-icon{
+        position: absolute;
+        top: 2%;
+        right: 3%;
+    }
+}
+@media screen and (max-width:337px){
+    .media-12{
+       padding-top:35px;
+    }
+}
+@media screen and (max-width:1199px){
+    .prdt-text{
+        font-size: 13px;
+    }
+}
+.cpn-12:hover{
+    background-color: #F7AA1C;
+}
+
+.billing-list {
+    max-height: 420px !important;
+}

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+.padright input#fname {
+    width: 98%;
+}
+.contact-add-1{
+    font-size: 24px;
+    font-family: 'Poppins','Medium';
+    color:#000000;
+    font-weight: 600;
+}
+.contact-right p i{
+    font-size: 20px;
+    color:#000000;
+}
+.contact-add-2{
+    font-size: 15px;
+    font-family: 'Poppins','Regular';
+    color:#000000A6;
+}
+.contact-add-2 span{
+    color:#F7AA1C;
+    font-family: 'Poppins','Bold';
+    font-weight: bold;
+}
+.contact-left form button{
+    float:right;
+    border: none;
+    background-color: #940205;
+    border-radius: 5px;
+    width:173px;
+    height:48px;
+    color:#FFFFFF;
+    font-size: 16px;
+    font-family: 'Poppins','Medium';
+    transition: 0.3s all ease-out;
+}
+.contact-left form button:hover{
+    background-color:#F7AA1C;
+}

@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+.soon{
+    max-width: 100% !important;
+    transform: translate(0px, 205px);
+}
+.soon-1{
+    font-size: 100px;
+    font-family: 'Poppins','Bold';
+    color:#000000;
+    font-weight: bold;
+}
+.soon-2{
+    font-size: 24px;
+    font-family: 'Poppins','Regular';
+}

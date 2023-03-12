@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <section>
+    <div class="text-center top-div py-5">
+      <div class="container">
+        <h1>Wishlist</h1>
+        <p><a href="{% url 'frontend:index' %}">Home/</a><a href="wishlist.html" style="color:black;">Wishlist</a></p>
+      </div>
+
+    </div>
+    <div class="container"> 
+      <div class="row mt-5 clothe-card-media">
+        {% if user_wishlist %}
+          {% for each in user_wishlist %}
+            <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+              <div class="card card-border">
+                <div class="float-icon">
+                  <p>New</p>
+                </div>
+              <div class="wishlist-card-icon">
+                {% if token %}
+                  <script>
+                    document.token = '{{ token }}'
+                  </script>
+                {% else %}
+                  <script>
+                    document.token = null
+                  </script>
+                {% endif  %}
+                <button class="product-slider__fav js-fav" id='wishlist{{each.product.id}}' onclick="heart_wishlist(this,'{{ each.product.name }}','{{ each.product.id }}')"><span class="heart is-active"></span></button>
+                    </div>
+                <a href="{% url 'frontend:each_products' each.product.id %}"><img class="card-img-top bg-image" src="{{ each.product.image.url }}" alt="Card image cap"></a>
+                <div>
+                  <div>
+                    <span class="top-card-text">3 Color Options</span>
+                    <span class="star-images" style="float:right;">
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                    </span>
+                  </div>
+                  <hr>
+                </div>
+                <div>
+                  <a href="{% url 'frontend:each_products' each.product.id %}" class="card-text img-text pro_name">{{ each.product.name }}</a>
+                </div>
+                <div>
+                  <p><span>${{each.product.discount_price}}</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                </div>
+              </div>
+
+            </div>
+          {% endfor %}
+        {% else %}
+        <div class="justify-content-center"><h2> Your wish list is empty </h2></div>
+        {% endif %}
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="mt-4">
+          <a href="{% url 'frontend:index' %}"><button type="button" class="btn btn-lg w-100 button-1 px-4 text-white">Continue Shopping</button></a>
+        </div>
+        <div class="mt-4">
+          <a href="{% url 'frontend:add_wishlist_to_cart' %}"><button type="button" class="btn btn-lg w-100 button-2 text-white">Add all to cart</button></a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  {% endblock content %}

@@ -1,0 +1,361 @@
+{% load static %}
+<!-- footer---------------------- -->
+<footer class="ct-footer">
+    <div class="container-flude m-3">
+      <form name="contentForm" enctype="multipart/form-data" method="post" action="">
+        <div class="ct-footer-pre text-center">
+          <div class="inner"> 
+            <span><img src="{% static './images/logo-footer.png' %}"></span>
+          </div>
+          <div class="inner foot-logo">
+            <span><i class="fab fa-facebook-f"></i></span>
+            <span><a href="http://instagram.com/denwear.in"><i class="fab fa-instagram"></i></a></span>
+            <span><i class="fab fa-twitter"></i></span>
+            <span><i class="fab fa-pinterest"></i></span>
+
+          </div><div class="inner">
+            <div class="form-group row">
+              <div class="col-md-6">
+                <span class="cus-text-footer">Sign up to our newsletter and immediately you get a 7% off for your
+                  first order</span>
+              </div>
+              <div class="d-flex col-md-6">
+                <form action="">
+                  <input name="formfields[nl_email]" id="nl_email" class="validate[required]"
+                    placeholder="Enter your email address" type="text" value=""> <label for="nl_email"
+                    class="sr-only">Email Address</label>
+                  <button type="submit" class="btn-motive">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <hr>
+      <ul class="ct-footer-list text-center-sm">
+        <li>
+          <address>
+            <h2 class="ct-footer-list-header">Contact Us</h2>
+            <span>PO Box 16122 Collins Street West<br>
+              Victoria B007 Australia-Map<br></span>
+              {% if our_contact_info %}
+                <span>Phone: <a href="tel:{{ our_contact_info.mobile_no }}">{{ our_contact_info.mobile_no }}</a></span>
+              {% else %}
+                <span>Phone: <a href="tel:+61 3 8376 6284">+61 3 8376 6284</a></span>
+              {% endif %}
+            <div class="payment-getway">
+              <ul>
+                <li>
+                  <img src="{% static './images/Visa.png' %}" alt="" srcset="">
+                </li>
+                <li>
+                  <img src="{% static './images/MasterCard.png' %}" alt="" srcset="">
+                </li>
+                <li>
+                  <img src="{% static './images/Maestro.png' %}" alt="" srcset="">
+                </li>
+                <li>
+                  <img src="{% static './images/AmericanExpress.png' %}" alt="" srcset="">
+                </li>
+                <li>
+                  <img src="{% static './images/Cirrus-light.png' %}" alt="" srcset="">
+                </li>
+                <li>
+                  <img src="" alt="" srcset="">
+                </li>
+              </ul>
+            </div>
+          </address>
+        </li>
+        <li>
+          <h2 class="ct-footer-list-header">Our Store</h2>
+          <ul>
+            <li>
+              <a href="">New York</a>
+            </li>
+            <li>
+              <a href="">London SF</a>
+            </li>
+            <li>
+              <a href="">Los Angeles</a>
+            </li>
+            <li>
+              <a href="">Las Vegas</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="ct-footer-list-header">Popular Categories</h2>
+          <ul>
+            <li>
+              <a href="">Hoodie Tees</a>
+            </li>
+            <li>
+              <a href="">Winterwear</a>
+            </li>
+            <li>
+              <a href="">Summerwear</a>
+            </li>
+            <li>
+              <a href="">Casual Wear</a>
+            </li>
+            <li>
+              <a href="">Ethenic</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="ct-footer-list-header">Shop Info</h2>
+          <ul>
+            <li>
+              <a href="{% url 'frontend:acessories' %}">Accessories</a>
+            </li>
+            <li>
+              <a href="{% url 'frontend:usercustomeproduct' %}">Categories</a>
+            </li>
+            <li>
+              <a href="#">Products</a>
+            </li>
+            <li>
+              <a href="#">Summer Wear</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="ct-footer-list-header">Shop By</h2>
+          <ul>
+            <li>
+              <a href="#recommend">Top Recommendations</a>
+            </li>
+            <li>
+              <a href="#collection-1">Latest Collection</a>
+            </li>
+            <li>
+              <a href="">Wishlist</a>
+            </li>
+            <li>
+              <a href="">Contact Us</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="ct-footer-list-header">Customer Support</h2>
+          <ul>
+            <li>
+              <a href="">The Blog</a>
+            </li>
+            <li>
+              <a href="{% url 'frontend:faq' %}">FAQs</a>
+            </li>
+            <li>
+              <a href="">Order Tracking</a>
+            </li>
+            <li>
+              <a href="">Shipping and Returns</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <hr>
+      <div class="ct-footer-meta text-center">
+        <p>Dragon witch &copy 2022. All Rights Reserved</p>
+      </div>
+    </div>
+<script>
+  function trackNavState(){
+    var isOpened = $('.nav-links.header_nav').hasClass('open');
+    if(isOpened){
+      $('body').addClass('sidebarOpened');
+    }else{
+      $('body').removeClass('sidebarOpened');
+    }
+    requestAnimationFrame(trackNavState);
+  }
+  requestAnimationFrame(trackNavState);
+</script>
+
+      <!--Start of Tawk.to Script-->
+      <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/62790ba27b967b11798e7435/1g2kdat08';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+        </script>
+        <!--End of Tawk.to Script-->
+  </footer>
+
+  <!-- Models start-->
+
+  <!-- ask product Modal start -->
+  <!-- <div class="modal fade" id="exampleModalask{{ each.product.id }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ each.product.id }}"
+  aria-hidden="true">
+      <div class="modal-dialog">
+
+          <div class="modal-content">
+              <h5 class="modal-close" data-bs-dismiss="modal">&#10005;</h5>
+              <h5 class="modal-title" id="exampleModalLabel">{{ each.product.name }}</h5>
+              <div>
+                  <p><span class="sign-text">Someone will answer your question shortly </span>
+                  </p>
+              </div>
+              <form action=''>
+                  <label class="label-login" for="question">Enter Question</label>
+                  <input type="text" id="question" name="question" class="w-100 label-input">
+                  <label class="label-login" for="description">Description</label>
+                  <input type="text" id="description" name="description" placeholder=""
+                      class="w-100 label-input">
+                  <input type="submit" value="Submit" class="btn btn-large">
+              </form>
+          </div>
+      </div>
+  </div>
+   -->
+  <!-- Models end-->
+  <!-- scripts--------- -->
+
+<!-- onload -->
+
+
+      <script src="{% static './assets/js/app.js' %}"></script>
+
+      <script>
+       //$(document).ready(function(){
+         //  $("#myModal").modal('show');
+       //});
+        $(function () {
+          var Accordion = function (el, multiple) {
+            this.el = el || {};
+            this.multiple = multiple || false;
+      
+            // Variables privadas
+            var links = this.el.find('.link');
+            // Evento
+            links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
+          }
+      
+          Accordion.prototype.dropdown = function (e) {
+            var $el = e.data.el;
+            $this = $(this),
+              $next = $this.next();
+      
+            $next.slideToggle();
+            $this.parent().toggleClass('open');
+      
+            if (!e.data.multiple) {
+              $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+            };
+          }
+      
+          var accordion = new Accordion($('#accordion'), false);
+        });
+        jQuery('.card-slider').slick({
+                    slidesToShow:4,
+                    autoplay: false,
+                    slidesToScroll:4,
+                    dots: false,
+                    responsive:[{
+                                  breakpoint: 768,
+                                  settings: {
+                                    slidesToShow: 2
+                                  }
+                                },
+                                {
+                                  breakpoint: 600,
+                                  settings: {
+                                    slidesToShow: 1
+                                  }
+                                  }]
+            });
+            
+            let cards = document.querySelectorAll('.card');
+            let card;
+            let modal = document.querySelector('.modal');
+            let closeButton = document.querySelector('.modal__close-button');
+            let page = document.querySelector('.page');
+            const cardBorderRadius = 20;
+            const openingDuration = 600; //ms
+            const closingDuration = 600; //ms
+            const timingFunction = 'cubic-bezier(.76,.01,.65,1.38)';
+      
+            var Scrollbar = window.Scrollbar;
+            Scrollbar.init(document.querySelector('.modal__scroll-area'));
+      
+      
+            function flipAnimation(first, last, options) {
+            let firstRect = first.getBoundingClientRect();
+            let lastRect = last.getBoundingClientRect();
+      
+            let deltas = {
+            top: firstRect.top - lastRect.top,
+            left: firstRect.left - lastRect.left,
+            width: firstRect.width / lastRect.width,
+            height: firstRect.height / lastRect.height
+            };
+      
+            return last.animate([{
+            transformOrigin: 'top left',
+            borderRadius:`
+            ${cardBorderRadius/deltas.width}px / ${cardBorderRadius/deltas.height}px`,
+            transform: `
+            translate(${deltas.left}px, ${deltas.top}px) 
+            scale(${deltas.width}, ${deltas.height})
+            `
+            },{
+            transformOrigin: 'top left',
+            transform: 'none',
+            borderRadius: `${cardBorderRadius}px`
+            }],options);
+            }
+      
+            cards.forEach((item)=>{
+            item.addEventListener('click',(e)=>{
+            jQuery('.card-slider').slick('slickPause');
+            card = e.currentTarget;
+            page.dataset.modalState = 'opening';
+            card.classList.add('card--opened');
+            card.style.opacity = 0;
+            document.querySelector('body').classList.add('no-scroll');
+      
+            let animation = flipAnimation(card,modal,{
+            duration: openingDuration,
+            easing: timingFunction,
+            fill:'both'
+            });
+      
+            animation.onfinish = ()=>{
+            page.dataset.modalState = 'open';
+            animation.cancel();
+            };
+            });
+            });
+      
+            closeButton.addEventListener('click',(e)=>{
+            page.dataset.modalState = 'closing';
+            document.querySelector('body').classList.remove('no-scroll');
+      
+            let animation = flipAnimation(card,modal,{
+            duration: closingDuration,
+            easing: timingFunction,
+            direction: 'reverse',
+            fill:'both'
+            });
+      
+            animation.onfinish = ()=>{
+            page.dataset.modalState = 'closed';
+            card.style.opacity = 1;
+            card.classList.remove('card--opened');
+            jQuery('.card-slider').slick('slickPlay');
+            animation.cancel();
+            };
+            });
+
+            
+      </script>
+</body>
+
+</html>

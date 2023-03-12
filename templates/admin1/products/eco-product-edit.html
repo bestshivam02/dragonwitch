@@ -1,0 +1,448 @@
+{% extends 'admin/base.html' %}
+    {% load static %}
+        {% block content %}
+
+                <div class="project-info">
+                    <div class="block1">
+                        <div class="data">
+                            <span class='title'>Orders</span>
+                            <span class='total'>545</span>
+                        </div>
+                        <div class="graph">
+                            <span class="sidebar_orders">...</span>
+                        </div>
+                    </div>
+
+                    <div class="block2">
+                        <div class="data">
+                            <span class='title'>Customers</span>
+                            <span class='total'>3146</span>
+                        </div>
+                        <div class="graph">
+                            <span class="sidebar_visitors">...</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <!--  SIDEBAR - END -->
+            <!-- START CONTENT -->
+            <section id="main-content" class=" ">
+                <section class="wrapper main-wrapper" style=''>
+
+                    <div class='col-xl-12 col-lg-12 col-md-12 col-12'>
+                        <div class="page-title">
+
+                            <div class="float-left">
+                                <h1 class="title">Edit Product</h1>                            </div>
+
+                            <div class="float-right d-none">
+                                <ol class="breadcrumb">
+                                    <li>
+                                        <a href="index.html"><i class="fa fa-home"></i>Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="eco-products.html">Products</a>
+                                    </li>
+                                    <li class="active">
+                                        <strong>Edit Product</strong>
+                                    </li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-xl-12 col-lg-12 col-12 col-md-12">
+                        <section class="box ">
+                            <header class="panel_header">
+                                <h2 class="title float-left">Basic Info</h2>
+                                <div class="actions panel_actions float-right">
+                                    <i class="box_toggle fa fa-chevron-down"></i>
+                                    <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                                    <i class="box_close fa fa-times"></i>
+                                </div>
+                            </header>
+                            <div class="content-body">
+                                <div class="row">
+                                    {% if product %}
+                                    <form action ="{% url 'Products:edit_product_dashboard' product.id %}" method="post" enctype= multipart/form-data>
+                                        <div class="col-xl-8 col-lg-8 col-md-9 col-12">
+                                            {% csrf_token %}
+
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">Category</label>
+                                                <span class="desc"></span>
+                                                <div class="controls">
+                                                    <select id="all_category" name="category" class="select-c" required>
+                                                        {% if all_category %}
+                                                            {% for each in all_category %}
+                                                                <option value="{{ each.name }}">{{ each.name }}</option>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Design
+                                            </label>
+                                            <div class="border">
+                                                {% if all_design %}
+                                                    {% for each in all_design%}
+                                                        
+                                                        <div class="form-check ml-2">
+                                                            <input class="form-check-input" type="checkbox" value="{{each.name}}" name="{{each.name}}"  id="edit_design{{each.name}}" {% if product_design %} {% for each_design in product_design %} {% if each_design.design == each %} checked {% endif %} {% endfor %} {% endif %}>
+                                                            <label class="form-check-label" for="flexCheckDefault">
+                                                                {{each.name}}
+                                                            </label>
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </div>
+
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Material
+                                            </label>
+                                            <div class="border">
+                                                {% if all_material %}
+                                                    {% for each in all_material%}
+                                                        <div class="form-check ml-2">
+                                                            <input class="form-check-input" type="checkbox" value="{{each.name}}" name="{{each.name}}" id="edit_material{{each.name}}" {% if product_material %} {% for each_material in product_material %} {% if each_material.material == each %} checked {% endif %} {% endfor %} {% endif %}>
+                                                            <label class="form-check-label" for="flexCheckDefault">
+                                                                {{each.name}}
+                                                            </label>
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </div>
+
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Color
+                                            </label>
+                                            <div class="border">
+                                                {% if all_color %}
+                                                    {% for each in all_color%}
+                                                        <div class="form-check ml-2">
+                                                            <input class="form-check-input" type="checkbox" value="{{each.name}}" name="{{each.name}}" id="edit_color{{each.name}}" {% if product_color %} {% for each_color in product_color %} {% if each_color.color == each %} checked {% endif %} {% endfor %} {% endif %}>
+                                                            <label class="form-check-label" for="flexCheckDefault">
+                                                                {{each.name}}
+                                                            </label>
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </div>
+
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Size
+                                            </label>
+                                            <div class="border">
+                                                {% if all_size %}
+                                                    {% for each in all_size%}
+                                                        <div class="form-check ml-2">
+                                                            <input class="form-check-input" type="checkbox" value="{{each.name}}" name="{{each.name}}" id="edit_size{{each.name}}" {% if product_size %} {% for each_design in product_size %} {% if each_design.size == each %} checked {% endif %} {% endfor %} {% endif %}>
+                                                            <label class="form-check-label" for="flexCheckDefault">
+                                                                {{each.name}}
+                                                            </label>
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">Product Name</label>
+                                                <span class="desc"></span>
+                                                <div class="controls">
+                                                    <input type="text" value="{{ product.name }}" class="form-control" id="edit_product_name" name="name" {% if product_material %} {% for each_material in product_material %} {% if each_material.material == each %} checked {% endif %} {% endfor %} {% endif %}>
+                                                </div>
+                                            </div>
+
+                                            <!-- <div class="form-group">
+                                                <label class="form-label" for="field-5">Status</label>
+                                                <span class="desc"></span>
+                                                <select class="form-control">
+                                                    <option></option>
+                                                    <option selected='selected'>In Stock</option>
+                                                    <option>Out of Stock</option>
+                                                </select>
+                                            </div> -->
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">Image</label>
+                                                <span class="desc"></span>
+                                                <img class="img-fluid" src="{{ product.image}}" alt="" style="max-width:120px;">
+                                                <div class="controls">
+                                                    <input type="file" class="form-control" id="edit_product_image" name="image" value="{{ product.image}}" multiple>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">Product Price</label>
+                                                <span class="desc"></span>
+                                                <div class="controls">
+                                                    <input type="number" class="form-control" id="edit_product_price" value="{{product.price}}" name="price">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">Discount</label>
+                                                <span class="desc"></span>
+                                                <div class="controls">
+                                                    <input type="text" value="{{ product.discount_price }}" class="form-control" id="edit_product_discount_price" name="discount_price">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">Quantity</label>
+                                                <span class="desc"></span>
+                                                <div class="controls">
+                                                    <input type="text" value="{{ product.quantity }}" class="form-control" id="edit_product_quantity" name="quantity">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-6">Brief</label>
+                                                <span class="desc">e.g. "Write here about the product"</span>
+                                                <div class="controls">
+                                                    <textarea class="form-control autogrow" cols="5" id="edit_product_description" name="description">{{ product.description }}</textarea>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-6">Additional Information</label>
+                                                <span class="desc">e.g. "write any additional inforamation about the product"</span>
+                                                <div class="controls">
+                                                    <textarea class="form-control autogrow" cols="5" id="edit_product_additional_information" name="additional_information">{{ product.additional_information }}</textarea>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-xl-8 col-lg-8 col-md-9 col-12 padding-bottom-30">
+                                                <div class="text-left">
+                                                    <button type="submit" class="btn btn-primary">Save</button>
+                                                    <button type="button" class="btn">Cancel</button>
+                                                </div>
+                                            </div>
+                                    </form>
+
+                                    <form action ="{% url 'Products:delete_product_dashboard' product.id %}" method="post">
+                                        <div class="col-xl-8 col-lg-8 col-md-9 col-12">
+                                            {% csrf_token %}
+
+                                            <div class="col-xl-8 col-lg-8 col-md-9 col-12 padding-bottom-30">
+                                                <div class="text-justify">
+                                                    <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this product?')">
+                                                </div>
+                                            </div>
+                                    </form>
+                                    {% endif %}
+                                </div>
+
+
+                            </div>
+                        </section></div>
+
+
+
+                </section>
+            </section>
+            <!-- END CONTENT -->
+            <div class="page-chatapi hideit">
+
+                <div class="search-bar">
+                    <input type="text" placeholder="Search" class="form-control">
+                </div>
+
+                <div class="chat-wrapper">
+                    <h4 class="group-head">Groups</h4>
+                    <ul class="group-list list-unstyled">
+                        <li class="group-row">
+                            <div class="group-status available">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                            <div class="group-info">
+                                <h4><a href="#">Work</a></h4>
+                            </div>
+                        </li>
+                        <li class="group-row">
+                            <div class="group-status away">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                            <div class="group-info">
+                                <h4><a href="#">Friends</a></h4>
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                    <h4 class="group-head">Favourites</h4>
+                    <ul class="contact-list">
+
+                        <li class="user-row" id='chat_user_1' data-user-id='1'>
+                            <div class="user-img">
+                                <a href="#"><img src="data/profile/avatar-1.png" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Clarine Vassar</a></h4>
+                                <span class="status available" data-status="available"> Available</span>
+                            </div>
+                            <div class="user-status available">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_2' data-user-id='2'>
+                            <div class="user-img">
+                                <a href="#"><img src="data/profile/avatar-2.png" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Brooks Latshaw</a></h4>
+                                <span class="status away" data-status="away"> Away</span>
+                            </div>
+                            <div class="user-status away">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_3' data-user-id='3'>
+                            <div class="user-img">
+                                <a href="#"><img src="data/profile/avatar-3.png" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Clementina Brodeur</a></h4>
+                                <span class="status busy" data-status="busy"> Busy</span>
+                            </div>
+                            <div class="user-status busy">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                    <h4 class="group-head">More Contacts</h4>
+                    <ul class="contact-list">
+
+                        <li class="user-row" id='chat_user_4' data-user-id='4'>
+                            <div class="user-img">
+                                <a href="#"><img src="data/profile/avatar-4.png" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Carri Busey</a></h4>
+                                <span class="status offline" data-status="offline"> Offline</span>
+                            </div>
+                            <div class="user-status offline">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_5' data-user-id='5'>
+                            <div class="user-img">
+                                <a href="#"><img src="data/profile/avatar-5.png" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Melissa Dock</a></h4>
+                                <span class="status offline" data-status="offline"> Offline</span>
+                            </div>
+                            <div class="user-status offline">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_6' data-user-id='6'>
+                            <div class="user-img">
+                                <a href="#"><img src="data/profile/avatar-1.png" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Verdell Rea</a></h4>
+                                <span class="status available" data-status="available"> Available</span>
+                            </div>
+                            <div class="user-status available">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_7' data-user-id='7'>
+                            <div class="user-img">
+                                <a href="#"><img src="data/profile/avatar-2.png" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Linette Lheureux</a></h4>
+                                <span class="status busy" data-status="busy"> Busy</span>
+                            </div>
+                            <div class="user-status busy">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_8' data-user-id='8'>
+                            <div class="user-img">
+                                <a href="#"><img src="data/profile/avatar-3.png" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Araceli Boatright</a></h4>
+                                <span class="status away" data-status="away"> Away</span>
+                            </div>
+                            <div class="user-status away">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_9' data-user-id='9'>
+                            <div class="user-img">
+                                <a href="#"><img src="data/profile/avatar-4.png" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Clay Peskin</a></h4>
+                                <span class="status busy" data-status="busy"> Busy</span>
+                            </div>
+                            <div class="user-status busy">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_10' data-user-id='10'>
+                            <div class="user-img">
+                                <a href="#"><img src="data/profile/avatar-5.png" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Loni Tindall</a></h4>
+                                <span class="status away" data-status="away"> Away</span>
+                            </div>
+                            <div class="user-status away">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_11' data-user-id='11'>
+                            <div class="user-img">
+                                <a href="#"><img src="data/profile/avatar-1.png" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Tanisha Kimbro</a></h4>
+                                <span class="status idle" data-status="idle"> Idle</span>
+                            </div>
+                            <div class="user-status idle">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+                        <li class="user-row" id='chat_user_12' data-user-id='12'>
+                            <div class="user-img">
+                                <a href="#"><img src="data/profile/avatar-2.png" alt=""></a>
+                            </div>
+                            <div class="user-info">
+                                <h4><a href="#">Jovita Tisdale</a></h4>
+                                <span class="status idle" data-status="idle"> Idle</span>
+                            </div>
+                            <div class="user-status idle">
+                                <i class="fa fa-circle"></i>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="chatapi-windows ">
+
+
+            </div>    </div>
+        <!-- END CONTAINER -->
+    {% endblock content %}

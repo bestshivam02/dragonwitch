@@ -1,0 +1,26 @@
+.cart-total-right select.form-select {
+    margin-top: 2px;
+    border-color: #EEEEEE;
+    font-size: 13px;
+    font-family: 'Poppins','Regular';
+    color:#BBBBBB;
+}
+.shipping-card{
+    justify-content: space-between;
+}
+.cart-total-right form button{
+    background-color: #000000;
+    border-radius: 3px;
+    font-size: 13px;
+    font-family: 'Poppins','Medium';
+    transition: 0.3s all ease-out;
+}
+.cart-total-right form button:hover{
+    background-color: #3A977D;
+}
+@media screen and (max-width:468px){
+    .coupon-right button {
+        float:left !important;
+        margin-top:15px; 
+    }
+}

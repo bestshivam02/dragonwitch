@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+  {% load static %}
+    {% block content %}
+      <div class="text-center top-div py-5">
+        <div class="container">
+          <h1>About Us</h1>
+          <p><a href="{% url 'frontend:index' %}">Home/</a><a href="about.html" style="color:black;">About Us</a></p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col-md-6 mt-5">
+            <p class="oul">Our Story</p>
+            <h1 class="sta">The New Standard Of Men's Shop</h1>
+            <p class="glo">
+              Denwer is the global marketplace for unique and creative men fashion
+              items. It’s home to a universe of special, extraordinary &
+              customized items, from unique handcrafted pieces to modern era.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <img
+              src="{% static './images/photo-1567401893414-76b7b1e5a7a5.jpg' %}"
+              class="clo"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <!-- section -->
+      <div class="gre mt-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="card gin" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <i class="fas fa-angle-double-right"></i>
+                </h5>
+                <h6 class="card-subtitle ur mb-2">Our Value</h6>
+                <p class="card-text">
+                  Every week, millions of savvy customers enjoy the fun and
+                  exciting shopping experience of Poundland in hundreds of stores
+                  nationwide.
+                </p>
+              </div>
+            </div>
+            <div class="card cl gin" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fab fa-alipay"></i></h5>
+                <h6 class="card-subtitle ur mb-2">Mission</h6>
+                <p class="card-text">
+                  Our mission to keep commerce human is the guiding principle
+                  behind the tangible ways we’re working to make a positive impact
+                  on our community, our environment and the global economy.
+                </p>
+              </div>
+            </div>
+            <div class="card gin" style="width: 18rem">
+              <div class="card-body">
+                <h5 class="card-title"><i class="fab fa-bandcamp"></i></h5>
+                <h6 class="card-subtitle ur mb-2">Our Vision</h6>
+                <p class="card-text">
+                  From Amazing TOP BRANDS and daily ESSENTIAL items, to fantastic
+                  NEW lines and stunning WOW deals, we hope our quality and
+                  variety gives you irresistible value each visit!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="mt-5">
+        <h1 class="tea">Meet Our Team</h1>
+        <p class="kno">Know our denwer team members</p>
+      </div> -->
+      <!-- team -->
+      <!-- <div>
+        <div class="container cet">
+          <div class="row ggg">
+            {% if admin_team_obj %}
+              {% for each_user in admin_team_obj %}
+              {{ each_user.profile_pic.image.url }}
+                <div class="card1" style="width: 18rem">
+                  <img class="img-top" src="{{ each_user.profile_pic.url }}" alt="Card image cap" />
+                  <div class="card-body">
+                    <h5 class="card-title px">{{ each_user.full_name}}</h5>
+                    <p class="card-text gx">Fashion Designer</p>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div> -->
+      <!-- testimonials -->
+      <div>
+        <div class="gre mt-5">
+          <h1 class="tea my-5">Testimonials</h1>
+          <div class="container">
+            <div class="row justify-content-center">
+              {% if testimonials %}
+                {% for each in  testimonials %}
+                  <div class="card gin" style="width: 18rem">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-2">
+                          <img src="{{ each.image.url }}" width="50px"  class="jj " />
+                        </div>
+                        <div class="col-md-10">
+                          <h6 class="card-subtitle urr mb-2">{{ each.name }}</h6>
+                          <p>
+                            {% with ''|center:each.rating_star as range %}
+                              {% for i in range %}
+                                <i class="fas fa-star"></i>
+                              {% endfor %}
+                          {% endwith %}  
+                          
+                          </p>
+                        </div>
+                      </div>
+                      <p class="card-text1">
+                        {{ each.review }}
+                      </p>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endblock content %}

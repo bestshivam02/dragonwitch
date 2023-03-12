@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+    <script>
+        clear_cart()
+    </script>
+        <section>
+            <div class="text-center top-div py-5">
+                <div class="container">
+                <h1>Shopping Cart</h1>
+                <p><a href="{% url 'frontend:index' %}">Home/</a><a href="{% url 'frontend:usercartlist' %}" style="color:black;">Cart</a></p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+        <div class="order-placed text-center mt-5">
+            <i class="far fa-check-circle"></i>
+            <p class="order-23">Thank you for your order !</p>
+            <p order="order-light">Your order is complete. Please check your email for the details</p>
+            <a href="{% url 'frontend:index' %}"><button type="button" class="mt-4">Shop more</button></a>
+        </div>
+        </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row mt-5 clothe-card-media">
+                    <p class="view-12">Recently Viewed Products</p>
+                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+                    <div class="card card-border">
+                        <!-- <div class="float-icon">
+                        <p>New</p>
+                        </div> -->
+                        <div class="wishlist-card-icon">
+                        <img src="./images/Icon-heart-2.png" alt="">
+                        </div>
+                        <a href="singlepdct.html"><img class="card-img-top bg-image" src="./images/1.png" alt="Card image cap"></a>
+                        <div>
+                        <div>
+                            <span class="top-card-text">3 Color Options</span>
+                            <span class="star-images" style="float:right;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <hr>
+                        </div>
+                        <div>
+                        <a href="singlepdct.html"  class="card-text img-text">Raymond Formals Men Shirt</a>
+                        </div>
+                        <div>
+                        <p><span>$723</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                        </div>
+                    </div>
+            
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+                    <div class="card card-border" >
+                        <div class="wishlist-card-icon">
+                        <img src="./images/Icon-heart-2.png" alt="">
+                        </div>
+                        <a href="singlepdct.html"><img class="card-img-top bg-image" src="./images/2.png" alt="Card image cap"></a>
+                        <div>
+                        <div>
+                            <span class="top-card-text">3 Color Options</span>
+                            <span class="star-images" style="float:right;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <hr>
+                        </div>
+                        <div>
+                        <a href="singlepdct.html"  class="card-text img-text">Wrangler Stretchable Jeans</a>
+                        </div>
+                        <div>
+                        <p><span>$832</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                        </div>
+                    </div>
+            
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+                    <div class="card card-border">
+                        <div class="left-float-icon">
+                        <p>hot</p>
+                        </div>
+                        <div class="wishlist-card-icon">
+                        <img src="./images/Icon-heart-2.png" alt="">
+                        </div>
+                        <a href="singlepdct.html"><img class="card-img-top bg-image" src="./images/3.png" alt="Card image cap"></a>
+                        <div>
+                        <div>
+                            <span class="top-card-text">3 Color Options</span>
+                            <span class="star-images" style="float:right;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <hr>
+                        </div>
+                        <div>
+                        <a href="singlepdct.html"  class="card-text img-text">Raymond Formals Men Shirt</a>
+                        </div>
+                        <div>
+                        <p><span>$107</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                        </div>
+                    </div>
+            
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+                    <div class="card card-border">
+                        <div class="wishlist-card-icon">
+                        <img src="./images/Icon-heart-2.png" alt="">
+                        </div>
+                        <a href="singlepdct.html"><img class="card-img-top bg-image" src="./images/4.png" alt="Card image cap"></a>
+                        <div>
+                        <div>
+                            <span class="top-card-text">3 Color Options</span>
+                            <span class="star-images" style="float:right;">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            </span>
+                        </div>
+                        <hr>
+                        </div>
+                        <div>
+                        <a href="singlepdct.html"  class="card-text img-text">Puma Men Track Pants</a>
+                        </div>
+                        <div>
+                        <p><span>$118</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% endblock content %}

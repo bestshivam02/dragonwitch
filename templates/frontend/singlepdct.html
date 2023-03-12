@@ -1,0 +1,343 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section>
+  <div class="text-center top-div py-2">
+    <div class="container">
+      {% if category %}
+      <!-- <h1>{{ each_product.name }}</h1> -->
+        <p><a href="{% url 'frontend:index' %}">Home/</a>
+          <a href="{% url 'frontend:products' category.id %}">{{ category.name }}/</a>
+          {% if each_product %}
+            <a href="{% url 'frontend:each_products' each_product.id %}">{{ each_product.name }}</a>
+          {% endif %}
+          <!-- <a href="#product"style="color:black;">Product</a></p> -->
+      {% endif %}
+    </div>
+  </div>
+</section> 
+<!-- d-section -->
+<section>
+  <div class="container">
+    <div class="row mt-5">
+      {% if each_product %}
+      <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+        <!-- <div class="slider-bg"> -->
+          <div class="change-slider">
+            <i class="fas fa-angle-left arrow-icon-12"></i>
+            <i class="fas fa-angle-right arrow-icon-23"></i>
+            <!-- Flickity HTML init -->
+            <div class="carousel carousel-main" data-flickity='{"pageDots": false }'>
+              {% if each_product.image %}
+                  <div class="carousel-cell"><img class="image-slider-12 singlepdct_image" src="{{ each_product.image.url }}"/></div>
+              {% endif %}
+              <!-- <div class="carousel-cell"><img class="image-slider-12" src="./images/big-jkt.png"/></div> -->
+              <!-- <div class="carousel-cell"><img src="//placehold.it/672x504/394cc6/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/672x504/5946b9/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/672x504/8946b9/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/672x504/bf409f/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/672x504/d92f26/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/672x504/d2562d/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/672x504/d98026/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/672x504/cca633/ffffff"/></div>   -->
+            </div>
+            <div class="carousel carousel-nav"
+              data-flickity='{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false }'>
+              <!-- <div class="carousel-cell"><img class="bottom-slider-12" src="./images/big-jkt.png"/></div>
+              <div class="carousel-cell"><img class="bottom-slider-12" src="./images/big-jkt.png"/></div> -->
+              {% if each_product.image %}
+                  <div class="carousel-cell"><img class="image-slider-12" src="{{ each_product.image.url }}"/></div>
+              {% endif %}
+              <!-- <div class="carousel-cell"><img src="//placehold.it/120x90/394cc6/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/120x90/5946b9/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/120x90/8946b9/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/120x90/bf409f/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/120x90/d92f26/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/120x90/d2562d/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/120x90/d98026/ffffff"/></div>
+              <div class="carousel-cell"><img src="//placehold.it/120x90/cca633/ffffff"/></div> -->
+            </div>
+            </div><!-- /.container -->
+        <!-- </div> -->
+        <!-- <div class="bottom-btns-slider">
+          <img src="./images/11.png" alt="">
+          <img src="./images/11.png" alt="">
+        </div> -->
+      </div>
+      <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+        <h3 class="jacket-text" id="product_name">{{ each_product.name }}</h3>
+        <div class="d-flex">
+          <span class="star-images">
+            {% if rating %}
+              {% with ''|center:rating as range %}
+              
+                {% for i in range %}
+                  <i class="fas fa-star"></i>
+                {% endfor %}
+              {% endwith %}
+            {% endif %}
+            
+            {% if zero_start %}
+              {% with ''|center:zero_start as neg_range %}
+              
+                {% for i in neg_range %}
+
+                <i class="far fa-star" aria-hidden="true"></i>
+
+                {% endfor %}
+              {% endwith %}
+            {% endif %}
+            
+            
+          </span>
+          <span>
+            <p class="px-2 review-text pt-1">{{review_count}} reviews</p>
+          </span>
+        </div>
+        <p class="jacket-description">{{ each_product.description }}</p>
+        {% comment %} <ul class="jacket-list">
+          <li><span><i>100% polyester</i></span></li>
+          <li><span><i>98% polyester</i></span></li>
+          <li><span><i>20% elastane</i></span></li>
+        </ul> {% endcomment %}
+        <h3>$</h3><h3 class='jkt-price' id="product_price">{{ each_product.price }}</h3>
+        {% comment %} <p><span class="color-te xt">Color : </span><span class='brown-text'>Dark Brown</span></p> {% endcomment %}
+        <div class="menu-12-container">
+          <ul class="menu-12 d-flex">
+          {% comment %} <li class="pane active"><img src="{% static './images/small-jacket.png' %}" src=""></li>
+          <li class="pane"><img src="{% static './images/small-black-jkt.png' %}" src=""></li> {% endcomment %}
+        </ul>
+        </div>
+        <!-- color change -->
+        <div>
+
+        </div>
+        <div class="btn-js my-2">
+          <p>Size : <a id="singlepdct_size" href="#s-size" >S</a></p>
+          <div class="size-buttons">
+            <div class="d-flex product-size">
+              <div class="list-group group-12" id=" -tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" onclick="functions()"  id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">S</a>
+                <a class="list-group-item list-group-item-action"  onclick="change_text()" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">M</a>
+                <a class="list-group-item list-group-item-action"  onclick="functionl()" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">L</a>
+                <a class="list-group-item list-group-item-action" onclick="functionxl()" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings">XL</a>
+                <a class="list-group-item list-group-item-action" onclick="functionxxl()" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">XXL</a>
+              </div>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal5">Find my size</a>
+            <!-- my size Modal start -->
+            <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <h5 class="modal-close" data-bs-dismiss="modal">&#10005;</h5>
+                  <div class="text-center modal-size-image">
+                    
+
+                    <!-- <img src="./images/Image 25.png" alt=""> -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+                      </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> <img src="{% static './images/Image 25.png' %}" alt=""></div>
+                      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- my size modal end -->
+          </div>
+
+        </div>
+        <div class="mt-5 d-flex main-button-class">
+          <div class="plus-button">
+            <form class="d-flex text-center">
+              <input type="number" id="sing_product_quantity" class="number singlepdct_qunatity" value="1" />
+              <div class="value-button" id="decrease" onclick="decreaseValue_single_pdct()" value="Decrease Value"><i
+                  class="fas fa-minus"></i></div>
+              <div class="value-button" id="increase" onclick="increaseValue_single_pdct()" value="Increase Value"><i
+                  class="fas fa-plus"></i></div>
+            </form>
+          </div>
+
+          <div class="btn-div">
+            <button class="cart-button" type="button" id='add_to_cart_button' 
+                {% if request.user.is_authenticated %}
+                  onclick="cart_wish_list(this,'{{ each_product.name }}','{{ each_product.id }}',document.getElementsByClassName('singlepdct_image')[0].src,document.getElementById('sing_product_quantity').value,'{{ token }}','{{ each_product.price }}',document.getElementById('singlepdct_size').innerHTML)"
+                {% else %}
+                  onclick="add_to_cart('{{ each_product.id }}','{{ each_product.name }}','{{ each_product.price }}',document.getElementsByClassName('singlepdct_image')[0].src,document.getElementById('sing_product_quantity').value,document.getElementById('singlepdct_size').innerHTML)"
+                {% endif %}
+
+                value=""><i class="fas fa-shopping-bag text-white"></i>Add toCart</button>
+          </div>
+          <span><a href="{% url 'frontend:add_product_wishlist'  %}?id={{each_product.id}}"><i class="fas fa-heart"></i></a></span>
+          <span><i class="fas fa-share-alt"></i></span>
+        </div>
+        <div class="stock-list mt-5">
+          {% if each_product.quantity >= 1 %}
+
+              <p><span class="left-text">Availability : </span><span style="color:#3A977D;">In Stock</span>
+              <script>
+                document.getElementById('add_to_cart_button').disabled=false;
+                document.getElementById('add_to_cart_button').style.cursor="pointer";
+                document.getElementById('add_to_cart_button').style.pointerEvents="auto";
+
+
+              </script>
+          {% else %}
+              
+              <script>
+                document.getElementById('add_to_cart_button').disabled=true;
+                document.getElementById('add_to_cart_button').style.cursor="default";
+                document.getElementById('add_to_cart_button').style.pointerEvents="none";
+
+
+              </script>
+              <p><span class="left-text">Availability : </span><span style="color:#e01224;">Out of Stock</span>
+          {% endif %}
+          </p>
+          <p><span class="left-text">SKU : </span><span class="text-142">{{ each_product.slug }}</span></p>
+          <!-- <p><span class="left-text">Categories : </span><span class="text-142">Sweatshirts, Shirt</span> -->
+          </p>
+          <p style="color:#940205;">Free shipping & return for orders over $200</p>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Tab Section------------------ -->
+
+<hr class="mt-3">
+<!-- similar product section----------------------- -->
+<section>
+  <div class="container">
+    <h1 class="mt-5 mb-4 text-center similar-head">Similar Products</h1>
+    <!-- recommendation another section -->
+
+    <div class="row mt-5 clothe-card-media similar-media">
+      <!-- <div class="col-md-10 latest-coll">
+          </div> -->
+      {% if similar_products %}
+        {% for each in similar_products %}
+          {% if forloop.counter < 5 %}
+          <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 mt-3 inner-cards">
+            <div class="card card-border">
+              <div class="wishlist-card-icon">
+                {% if request.user.is_authenticated %}
+                    {% if each_product.wish_list %}
+                        <button class="product-slider__fav js-fav" id='wishlist{{each_product.id}}' onclick="heart_wishlist(this,'{{ each_product.name }}','{{ each_product.id }}')"><span class="heart is-active"></span></button>
+                    {% else %}
+                        <button class="product-slider__fav js-fav" id='wishlist{{each_product.id}}' onclick="heart_wishlist(this,'{{ each_product.name }}','{{ each_product.id }}')"><span class="heart"></span></button>
+                    {% endif %}
+                {% else %}
+                    <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="product-slider__fav js-fav" id='wishlist{{each_product.id}}' ><span class="heart"></span></button>
+                {% endif %}
+              </div>
+              <a href="{% url 'frontend:each_products' each.id %}"> <img class="card-img-top bg-image" src="{{ each.image.url }}" alt="Card image cap"></a>
+              <div>
+                <div>
+                  <span class="top-card-text">3 Color Options</span>
+                  <span class="star-images" style="float:right;">
+                    {% with ''|center:each.rating_star as range %}
+                        {% for i in range %}
+                          <i class="fas fa-star"></i>
+                        {% endfor %}
+                    {% endwith %}  
+                    {% with ''|center:each.zero_rating_star as negative_range %}
+                        {% for i in negative_range %}
+                        <i class="far fa-star"></i>
+                        {% endfor %}
+                    {% endwith %}
+                  </span>
+                </div>
+                <hr>
+              </div>
+              <div>
+                <a  class="card-text img-text" href="{% url 'frontend:each_products' each.id %}">{{ each.name }}</a>
+              </div>
+              <div>
+                <p><span>$723</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+</section>
+
+  {% if request.user.is_authenticated %}
+  <script>
+    document.token = '{{ token }}';
+  </script>
+  {% else %}
+  <script>
+    document.token = null
+  </script>
+  {% endif %}
+  <script>
+    $(document).ready(function(){
+
+      /* 1. Visualizing things on Hover - See next part for action on click */
+      $('#stars li').on('mouseover', function(){
+      var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+      
+      // Now highlight all the stars that's not after the current hovered star
+      $(this).parent().children('li.star').each(function(e){
+      if (e < onStar) {
+      $(this).addClass('hover');
+      }
+      else {
+      $(this).removeClass('hover');
+      }
+      });
+      
+      }).on('mouseout', function(){
+      $(this).parent().children('li.star').each(function(e){
+      $(this).removeClass('hover');
+      });
+      });
+      
+      
+      /* 2. Action to perform on click */
+      $('#stars li').on('click', function(){
+      var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+      var stars = $(this).parent().children('li.star');
+      
+      for (i = 0; i < stars.length; i++) {
+      $(stars[i]).removeClass('selected');
+      }
+      
+      for (i = 0; i < onStar; i++) {
+      $(stars[i]).addClass('selected');
+      }
+      
+      // JUST RESPONSE (Not needed)
+      var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+      var msg = "";
+      $('#rating_star_id').val(ratingValue) 
+      });
+      
+      
+      });
+      
+      
+      function responseMessage(msg) {
+      $('.success-box').fadeIn(200);  
+      $('.success-box div.text-message').html("<span>" + msg + "</span>");
+      }
+  </script>
+  
+<!-- slider start -->
+<!-- slider -->
+{% endblock content %}
