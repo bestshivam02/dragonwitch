@@ -138,7 +138,7 @@
                 Cart</button>
             </div>
             <span><i onclick="document.querySelector().style.Color='red'" class="fas fa-heart"></i></span>
-            <span><i class="fas fa-share-alt"></i></span>
+            <!-- <span><i class="fas fa-share-alt"></i></span> -->
           </div>
           <div class="stock-list mt-5">
             <p><span class="left-text">Availability : </span><span style="color:#3A977D;">In Stock</span>
@@ -487,7 +487,7 @@
                         <p class="card-text img-text">Men Check Boxers</p>
                       </div>
                       <div>
-                        <p><span>$723</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                        <p><span>₹723</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
                       </div>
                     </div>
                   </div>
@@ -513,7 +513,7 @@
                         <p class="card-text img-text">Simple Plazo & Kurti</p>
                       </div>
                       <div>
-                        <p><span>$500</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                        <p><span>₹500</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
                       </div>
                     </div>
                   </div>
@@ -539,7 +539,7 @@
                       <p class="card-text img-text">Unisex Capree</p>
                     </div>
                     <div>
-                      <p><span>$630</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                      <p><span>₹630</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
                     </div>
                   </div>
                 </div> -->
@@ -678,7 +678,7 @@
               <p class="card-text img-text">Rossetto Men Round Neck T-shirt</p>
             </div>
             <div>
-              <p><span>$723</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
+              <p><span>₹723</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
               </p>
             </div>
           </div>
@@ -706,7 +706,7 @@
               <p class="card-text img-text">Wrangler Stretchable Jeans</p>
             </div>
             <div>
-              <p><span>$832</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
+              <p><span>₹832</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
               </p>
             </div>
           </div>
@@ -738,7 +738,7 @@
               <p class="card-text img-text">Raymond Formals Men Shirt</p>
             </div>
             <div>
-              <p><span>$107</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
+              <p><span>₹107</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
               </p>
             </div>
           </div>
@@ -767,7 +767,7 @@
               <p class="card-text img-text">Puma Men Track Pants</p>
             </div>
             <div>
-              <p><span>$118</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
+              <p><span>₹118</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
               </p>
             </div>
           </div>
@@ -811,7 +811,7 @@
                         <a  class="card-text img-text" href="{% url 'frontend:each_products' each.id %}">{{ each.name }}</a>
                       </div>
                       <div>
-                        <p><span>${{ each.discount_price}}</span>
+                        <p><span>₹{{ each.discount_price}}</span>
                           <i class="fas fa-shopping-bag"></i></p>
                       </div>
                   </div>

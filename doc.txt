@@ -1,0 +1,10 @@
+1.Make Customized Product as the main option (Remove bulk customized order and its drop down from nav bar)
+2. After login, Responsive ness has not been checked as the nav bar changed and also at checkout things are not looking professional
+3. Make Text and gravatar separate and text box on front above the color selction option. 
+4. Take the customization at checkout page so user can see what is being submitted
+5. Add link to customization banner which is at bottom of the home page.
+6. Add links to the banner to respective columns. *Now it's dynamic for main_carousel
+7. Add Main slider banner link (Shop the collection)  to the products (upperwear section) *Now it's dynamic for main_carousel
+8. Change dollar sign to rupee sign everywhere 
+9. Remove the share option when any product is being opened
+10. When click on any product at the product quantity option, counter minimum count should be 1, it can not go to 0, (right now its allowing to do 0)

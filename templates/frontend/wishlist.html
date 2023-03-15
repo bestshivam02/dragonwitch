@@ -48,7 +48,7 @@
                   <a href="{% url 'frontend:each_products' each.product.id %}" class="card-text img-text pro_name">{{ each.product.name }}</a>
                 </div>
                 <div>
-                  <p><span>${{each.product.discount_price}}</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                  <p><span>₹{{each.product.discount_price}}</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
                 </div>
               </div>
 

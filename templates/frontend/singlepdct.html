@@ -176,7 +176,7 @@
                 value=""><i class="fas fa-shopping-bag text-white"></i>Add toCart</button>
           </div>
           <span><a href="{% url 'frontend:add_product_wishlist'  %}?id={{each_product.id}}"><i class="fas fa-heart"></i></a></span>
-          <span><i class="fas fa-share-alt"></i></span>
+          <!-- <span><i class="fas fa-share-alt"></i></span> -->
         </div>
         <div class="stock-list mt-5">
           {% if each_product.quantity >= 1 %}
@@ -263,7 +263,7 @@
                 <a  class="card-text img-text" href="{% url 'frontend:each_products' each.id %}">{{ each.name }}</a>
               </div>
               <div>
-                <p><span>$723</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
+                <p><span>₹723</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span>
                 </p>
               </div>
             </div>

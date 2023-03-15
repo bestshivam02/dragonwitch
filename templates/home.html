@@ -21,13 +21,13 @@
           <div class="carousel-item">
         {% endif %}
 
-        <img src="{{ each.image.url }}" class="d-block w-100" alt="...">
+        <a href="{{ each.redirect_link }}"><img src="{{ each.image.url }}" class="d-block w-100" alt="..."></a>
         <div class="carousel-caption-1 d-none d-md-block">
           <p class="caption-text">{{ each.description }}</p>
           <h1>50% off on Men's Tshirts</h1>
           <p class="caption-text-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor
             incididunt ut labore et dolore magnc</p>
-          <button type="button" value="shop">Shop the Collection</button>
+          <a href="{{ each.redirect_link }}"><button type="button" value="shop">Shop the Collection</button></a>
         </div>
       </div>
 
@@ -166,7 +166,7 @@
                     <a  class="card-text img-text pro_name" href="{% url 'frontend:each_products' each_product.id %}">{{each_product.name}}</a>
                   </div>
                   <div>
-                    <p><span>${{each_product.discount_price}}</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                    <p><span>₹{{each_product.discount_price}}</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
                   </div>
                 </div>
               </div>
@@ -200,12 +200,12 @@
                     </div>
                   </div>
                   <div class="counter-content">
-                    <h2>
+                    <a style = "text-decoration: none;" href="{% url 'frontend:each_products' each.product_detail.id %}"><h2>
                       DEAL OF THE DAY
-                    </h2>
-                    <h6>
+                    </h2></a>
+                    <a style = "text-decoration: none;" href="{% url 'frontend:each_products' each.product_detail.id %}"><h6>
                       {{ each.product_detail.name }}
-                    </h6>
+                    </h6></a>
 
                     <div class=" text-center ratee">
                       <span class="fa fa-star checked"></span>
@@ -302,7 +302,7 @@
                       <a  class="card-text img-text pro_name" href="{% url 'frontend:each_products' each.id %}">{{each.name}}</a>
                     </div>
                     <div>
-                      <p><span>$ {{each.discount_price}}</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
+                      <p><span>₹ {{each.discount_price}}</span><span style="float:right;"><i class="fas fa-shopping-bag"></i></span></p>
                     </div>
                   </div>
                 </div>
@@ -356,7 +356,7 @@
         {% for each in custome_shirt_banner %}
           <div class="container section_banner">
             <div class="banner-image">
-              <img src="{{ each.image.url }}" class="banner-image" alt="">
+              <a href="/customeshirt"><img src="{{ each.image.url }}" class="banner-image" alt=""></a>
               <div class=d-flex>
                 <!-- <div>
                   <p class="disc-20">20%</p>
