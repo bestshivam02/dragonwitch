@@ -216,8 +216,8 @@
                     </div>
 
                     <div class="price text-center">
-                      <span class="pre-price"><del>${{ each.product_detail.price }}</del></span>
-                      <span class="end-price">${{ each.product_detail.discount_price }}</span>
+                      <span class="pre-price"><del>₹{{ each.product_detail.price }}</del></span>
+                      <span class="end-price">₹{{ each.product_detail.discount_price }}</span>
                       <div class="shop-buttoncus-1">
                         <a class="text-center dafadfj " href="{% url 'frontend:each_products' each.product_detail.id %}">Shop Now</a>
                       </div>

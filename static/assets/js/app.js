@@ -95,7 +95,7 @@ function increaseValue_single_pdct() {
                                       +cart_product_list[i].singlepdct_image
                                       +'" alt=""></div><div clas="prdt-text-1"><p>'
                                       +cart_product_list[i].product_name
-                                      +'</p><p class="prdt_price">$<span class=side_cart_price>'
+                                      +'</p><p class="prdt_price">₹<span class=side_cart_price>'
                                       +cart_product_list[i].product_price
                                       +'</span></p></div><div class="prdt-icon-1" onclick="remove_from_cart('+i+')"><i class="fas fa-times"></i></div></div>'
                 )
@@ -358,7 +358,7 @@ function increaseValue_single_pdct() {
                                 '</div>'+
                                 '<div class="col-md-2 col-lg-2 col-sm-6 col-xs-6 cart-price">'+
                                 '<div class="main-552 text-center">'+
-                                '<p class="span-cart-552" >$<span class="cart_price">'+cart_product_list[i].product_price+'</span></p>'+
+                                '<p class="span-cart-552" >₹<span class="cart_price">'+cart_product_list[i].product_price+'</span></p>'+
                                             '</div>'+
                                         '</div>'+
                                         '<span><i class="fas fa-times cross-wrong"></i></span>'+

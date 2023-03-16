@@ -40,7 +40,7 @@
                                         </div>
                                           <div class="col-md-2 col-lg-2 col-sm-6 col-xs-6 cart-price">
                                               <div class="main-552 text-center">
-                                              <p class="span-cart-552" >$<span class="cart_price">{{ each.product.price }}</span></p>
+                                              <p class="span-cart-552" >₹<span class="cart_price">{{ each.product.price }}</span></p>
                                             </div>
                                         </div>
                                         <span style="cursor: pointer;" onclick="remove_pro_from_cart('{{ each.product.name }}','{{ each.product.id }}')" ><i  class="fas fa-times cross-wrong"></i></span>
@@ -60,15 +60,15 @@
                           <div class="col-md-12 col-lg-4 col-xs-12 col-sm-12 cart-total-main">
                               <h4 class="text-center">Card Total</h4>
                               <hr>
-                              <span class="cart-total">Sub Total</span><span class="cart-total-right" style="float:right;">$<span id="total_before_shipping">0</span></span>
+                              <span class="cart-total">Sub Total</span><span class="cart-total-right" style="float:right;">₹<span id="total_before_shipping">0</span></span>
                               <br>
                               <hr>
-                              <span class="cart-total">Shipping</span><span class="cart-total-right" style="float:right;">$<span id="cart_shipping">0</span></span>
+                              <span class="cart-total">Shipping</span><span class="cart-total-right" style="float:right;">₹<span id="cart_shipping">0</span></span>
                               {% comment %} <br> {% endcomment %}
                               {% comment %} <span style="float:right;"><a href="shipping.html">Calculate Shipping</a></span> {% endcomment %}
                               {% comment %} <br> {% endcomment %}
                               <hr>
-                              <span class="cart-total">Total</span><span class="cart-total-right" style="float:right;">$<span id="total_after_shipping">0</span></span>
+                              <span class="cart-total">Total</span><span class="cart-total-right" style="float:right;">₹<span id="total_after_shipping">0</span></span>
                               <br>
                               {% if request.user.is_authenticated %}
                                 <a href="{% url 'frontend:usercheckout' %}"><button type="button">Checkout</button></a>
